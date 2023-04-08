@@ -1,0 +1,207 @@
+.tourist_logs {
+  /* padding-top: 75px; */
+  /* overflow-y: hidden;
+  height: 100vh; */
+}
+
+.form-group.active {
+  display: none;
+}
+
+.form-group.not-active {
+  display: grid;
+}
+
+.tourist_logs > .container {
+  padding: 24px 40px 0;
+}
+
+/* Header */
+
+.tourist_logs > .container > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tourist_logs > .container > header > h1 {
+  font-size: 20px;
+}
+
+/* Tabs & Search */
+
+.tourist_logs > .container > .tabs_and_search {
+  display: flex;
+  justify-content: space-between;
+  margin: 32px 0 24px;
+}
+
+.tourist_logs > .container > .tabs_and_search > .form-group > .input-field {
+  width: 400px;
+}
+
+.tourist_logs > .container > .tabs_and_search .form-group > .input-field > *:first-child {
+  margin: 0 12px;
+}
+
+/* Date Range */
+
+.tourist_logs > .container > .date_range {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+/* Table */
+
+.tourist_logs > .container > .table {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 666px;
+  padding-bottom: 24px;
+  filter: drop-shadow(0px 5px 8px rgba(0, 0, 0, 0.2));
+}
+
+.tourist_logs > .container > .active {
+  display: flex;
+}
+
+.tourist_logs > .container > .not-active {
+  display: none;
+}
+
+.tourist_logs > .container > .table > .header,
+.tourist_logs > .container > .table > .items > a {
+  display: flex;
+  gap: 16px;
+  height: 70px;
+  padding: 16px 24px;
+  background-color: #FFF;
+}
+
+.tourist_logs > .container > .table > .items > a {
+  align-items: center;
+  border-bottom: 1px solid #B1B3B6;
+}
+
+.tourist_logs > .container > .table > .header {
+  overflow-y: hidden;
+  background-color: #F7F7F7;
+}
+
+.tourist_logs > .container > .table > .header div {
+  height: fit-content;
+}
+
+.tourist_logs > .container > .table > .header > div {
+  overflow: hidden;
+}
+
+.tourist_logs > .container > .table > .header p {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.tourist_logs > .container > .table > .items {
+  display: grid;
+}
+
+.tourist_logs > .container > .table > div p {
+  font-size: 14px;
+}
+
+/* Guests Table */
+
+.tourist_logs > .container > #guests-table .name {
+  width: 20%;
+}
+
+.tourist_logs > .container > #guests-table .age {
+  width: 10%;
+}
+
+.tourist_logs > .container > #guests-table .gender {
+  width: 15%;
+}
+
+.tourist_logs > .container > #guests-table .address {
+  width: 25%;
+}
+
+.tourist_logs > .container > #guests-table .contact_num {
+  width: 15%;
+}
+
+.tourist_logs > .container > #guests-table .vehicle {
+  width: 10%;
+}
+
+.tourist_logs > .container > #guests-table .plate_num {
+  width: 10%;
+}
+
+.tourist_logs > .container > #guests-table .time_arrived {
+  width: 7%;
+}
+
+.tourist_logs > .container > #guests-table > div:not(:first-child) .time_arrived > p {
+  color: #32A75A;
+  font-weight: 800;
+}
+
+/* Vehicles Table */
+
+.tourist_logs > .container > #vehicles-table .plate_num {
+  width: 20%;
+}
+
+.tourist_logs > .container > #vehicles-table .driver_name {
+  width: 25%;
+}
+
+.tourist_logs > .container > #vehicles-table .vehicle {
+  width: 20%;
+}
+
+.tourist_logs > .container > #vehicles-table .vechicle_type {
+  width: 15%;
+}
+
+.tourist_logs > .container > #vehicles-table .num_of_passengers {
+  display: flex;
+  justify-content: center;
+  width: 15%;
+}
+
+.tourist_logs > .container > #vehicles-table > .items > a > .num_of_passengers > p {
+  padding: 2px 5px;
+  border-radius: 100px;
+  background-color: #32A75A;
+  color: #FFF;
+}
+
+.tourist_logs > .container > #vehicles-table .passenger_info {
+  width: 15%;
+}
+
+.tourist_logs > .container > #vehicles-table .time_arrived {
+  width: 10%;
+}
+
+.tourist_logs > .container > #vehicles-table > div:not(:first-child) .time_arrived > p {
+  color: #32A75A;
+  font-weight: 800;
+}
+
+@media only screen and (min-width: 1440px) {
+  .tourist_logs > .container {
+    padding: 24px 80px 0;
+  }
+
+  .tourist_logs > .container > .table > .header,
+  .tourist_logs > .container > .table > .items > a {
+    height: 65px;
+  }
+}

@@ -1,0 +1,78 @@
+.vehicle_form > .container {
+  padding: 24px 40px 80px;
+}
+
+/* Header */
+
+.vehicle_form > .container > header > div {
+  display: flex;
+  align-items: center;
+}
+
+.vehicle_form > .container > header > div > h1 {
+  margin-left: 16px;
+  text-transform: capitalize;
+  font-size: 20px;
+}
+
+.vehicle_form > .container > header > p {
+  margin-top: 16px;
+  font-size: 16px;
+}
+
+/* Form */
+
+.vehicle_form > .container > form,
+.vehicle_form > .container > form > section {
+  display: grid;
+  gap: 24px;
+}
+
+.vehicle_form > .container > form {
+  gap: 40px;
+  width: 1080px;
+  margin-top: 32px;
+}
+
+.vehicle_form > .container > form > section > h2 {
+  color: #636466;
+  font-size: 18px;
+}
+
+.vehicle_form > .container > form > section > div {
+  display: flex;
+  gap: 80px;
+}
+
+.vehicle_form > .container > form input,
+.vehicle_form > .container > form textarea,
+.vehicle_form > .container > form .input-field {
+  width: 500px;
+}
+
+.vehicle_form > .container > form > button {
+  padding: 0;
+  background-color: transparent;
+}
+
+.vehicle_form > .container > form > button > p {
+  margin-left: 8px;
+  font-weight: 700;
+}
+
+.vehicle_form > .container > form > .actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 56px;
+  margin-left: auto;
+}
+
+.vehicle_form > .container > form > .actions > .btn {
+  width: 96px;
+}
+
+@media only screen and (min-width: 1440px) {
+  .vehicle_form > .container {
+    padding: 24px 80px 80px;
+  }
+}

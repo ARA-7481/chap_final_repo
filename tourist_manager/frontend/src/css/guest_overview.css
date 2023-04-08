@@ -1,0 +1,81 @@
+.guest_overview > .container {
+  padding: 24px 40px 0;
+}
+
+/* Header */
+
+.guest_overview > .container > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.guest_overview > .container > header > div {
+  display: flex;
+  align-items: center;
+}
+
+.guest_overview > .container > header > .dropdown_btn_container > button {
+  padding: 0;
+  background-color: transparent;
+}
+
+.guest_overview > .container > header > .dropdown_btn_container > .menu {
+  position: absolute;
+  right: 64px;
+  z-index: 1;
+  display: grid;
+  width: 124px;
+  margin-top: 100px;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+}
+
+.guest_overview > .container > header > .dropdown_btn_container > .menu > a {
+  display: inline-flex;
+  gap: 12px;
+}
+
+.guest_overview > .container > header > div > h1 {
+  margin-left: 16px;
+  font-size: 20px;
+}
+
+/* Details */
+
+.guest_overview > .container > .details {
+  display: grid;
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.guest_overview > .container > .details > div {
+  display: flex;
+  gap: 200px;
+}
+
+.guest_overview > .container > .details > div > div {
+  display: flex;
+  gap: 64px;
+  width: 600px;
+}
+
+.guest_overview > .container > .details > div > div > label {
+  width: 200px;
+  color: #505050;
+}
+
+.guest_overview > .container > .details > div > div > p {
+  font-weight: 600;
+}
+
+.guest_overview > .container > .details > div > div > p.date-time {
+  color: #32A75A;
+  font-weight: 700;
+}
+
+@media only screen and (min-width: 1440px) {
+  .guest_overview > .container {
+    padding: 24px 80px 0;
+  }
+}

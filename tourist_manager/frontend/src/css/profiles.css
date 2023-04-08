@@ -1,0 +1,146 @@
+.profiles {
+  overflow-y: hidden;
+  height: 100vh;
+}
+
+.profiles > .container {
+  padding: 24px 40px 0;
+}
+
+/* Header */
+
+.profiles > .container > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profiles > .container > header > h1 {
+  font-size: 20px;
+}
+
+/* Tabs & Search */
+
+.profiles > .container > .tabs_and_search {
+  display: flex;
+  justify-content: space-between;
+  margin: 32px 0 24px;
+}
+
+.profiles > .container > .tabs_and_search > .tabs {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.profiles > .container > .tabs_and_search > .form-group > .input-field {
+  width: 400px;
+}
+
+.profiles > .container > .tabs_and_search .form-group > .input-field > *:first-child {
+  margin: 0 12px;
+}
+/* Table */
+
+.profiles > .container > .table {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 700px;
+  padding-bottom: 24px;
+  filter: drop-shadow(0px 5px 8px rgba(0, 0, 0, 0.2));
+}
+
+.profiles > .container > .table > .header,
+.profiles > .container > .table > .items > a {
+  display: flex;
+  gap: 16px;
+  height: 70px;
+  padding: 16px 24px;
+  background-color: #FFF;
+}
+
+.profiles > .container > .table > .header {
+  background-color: #F7F7F7;
+}
+
+.profiles > .container > .table > .header > div {
+  overflow: hidden;
+}
+
+.profiles > .container > .table > .header p {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.profiles > .container > .table > .items {
+  display: grid;
+}
+
+.profiles > .container > .table > .items > a {
+  align-items: center;
+  border-bottom: 1px solid #B1B3B6;
+}
+
+.profiles > .container > .table > div p {
+  font-size: 14px;
+}
+
+.profiles > .container > .table > .header > div,
+.profiles > .container > .table > .items > a > div {
+  width: 33%;
+}
+
+/* .profiles > .container > .table .name {
+  width: 24%;
+}
+
+.profiles > .container > .table > .items > a > .name {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.profiles > .container > .table > .items > a > .name > img {
+  width: 24px;
+  height: 24px;
+}
+
+.profiles > .container > .table .username {
+  width: 20%;
+}
+
+.profiles > .container > .table .age {
+  width: 14%;
+}
+
+.profiles > .container > .table .gender {
+  width: 14%;
+}
+
+.profiles > .container > .table .address {
+  width: 44%;
+}
+
+.profiles > .container > .table .contact_num {
+  width: 20%;
+}
+
+.profiles > .container > .table .type {
+  width: 14%;
+} */
+
+.profiles > .container > .table > div:not(:first-child) .time_arrived > p {
+  color: #32A75A;
+  font-weight: 800;
+}
+
+@media only screen and (min-width: 1440px) {
+  .profiles > .container {
+    padding: 24px 80px 0;
+  }
+
+  .profiles > .container > .table > .header,
+  .profiles > .container > .table > .items > a {
+    height: 65px;
+  }
+}

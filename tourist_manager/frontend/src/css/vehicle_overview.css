@@ -1,0 +1,180 @@
+.vehicle_overview > .container {
+  padding: 24px 40px 0;
+}
+
+/* Header */
+
+.vehicle_overview > .container > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vehicle_overview > .container > header > .dropdown_btn_container > button {
+  padding: 0;
+  background-color: transparent;
+}
+
+.vehicle_overview > .container > header > .dropdown_btn_container > .menu {
+  position: absolute;
+  right: 64px;
+  z-index: 1;
+  display: grid;
+  width: 124px;
+  margin-top: 100px;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+}
+
+.vehicle_overview > .container > header > .dropdown_btn_container > .menu > a {
+  display: inline-flex;
+  gap: 12px;
+}
+
+.vehicle_overview > .container > header > div {
+  display: flex;
+  align-items: center;
+}
+
+.vehicle_overview > .container > header > div > h1 {
+  margin-left: 16px;
+  font-size: 20px;
+}
+
+/* Tabs */
+
+.vehicle_overview > .container > .tabs {
+  margin-top: 32px;
+}
+
+/* Details */
+
+.vehicle_overview > .container > .details {
+  display: grid;
+  gap: 32px;
+  margin-top: 32px;
+  display: none;
+}
+
+.vehicle_overview > .container > .details > section {
+  display: grid;
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.vehicle_overview > .container > .details > div,
+.vehicle_overview > .container > .details > section > div {
+  display: flex;
+  gap: 200px;
+}
+
+.vehicle_overview > .container > .details > div > div,
+.vehicle_overview > .container > .details > section > div > div {
+  display: flex;
+  gap: 64px;
+  width: 600px;
+}
+
+.vehicle_overview > .container > .details > div > div > label,
+.vehicle_overview > .container > .details > section > div > div > label {
+  width: 200px;
+  color: #505050;
+}
+
+.vehicle_overview > .container > .details > div > div > p,.vehicle_overview > .container > .details > section > div > div > p {
+  font-weight: 600;
+}
+
+.vehicle_overview > .container > .details > div > div > p.date-time,
+.vehicle_overview > .container > .details > section > div > div > p.date-time {
+  color: #32A75A;
+  font-weight: 700;
+}
+
+/* Table */
+
+.vehicle_overview > .container > .table {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  margin-top: 32px;
+  padding-bottom: 24px;
+  filter: drop-shadow(0px 5px 8px rgba(0, 0, 0, 0.2));
+}
+
+.vehicle_overview > .container > .table > .header,
+.vehicle_overview > .container > .table > .items > a {
+  display: flex;
+  gap: 16px;
+  height: 70px;
+  padding: 16px 24px;
+  background-color: #FFF;
+}
+
+.vehicle_overview > .container > .table > .header {
+  background-color: #F7F7F7;
+}
+
+.vehicle_overview > .container > .table > .header > .driver_name,
+.vehicle_overview > .container > .table > .items > a > .driver_name {
+  width: 40%;
+}
+
+.vehicle_overview > .container > .table > .header > .num_of_passenger,
+.vehicle_overview > .container > .table > .items > a > .num_of_passenger {
+  width: 40%;
+}
+
+.vehicle_overview > .container > .table > .header > .date_arrived,
+.vehicle_overview > .container > .table > .items > a > .date_arrived {
+  width: 35%;
+}
+
+
+.vehicle_overview > .container > .table > .header > div {
+  overflow: hidden;
+}
+
+.vehicle_overview > .container > .table > .header > div,
+.vehicle_overview > .container > .table > .items > a > div {
+  width: 20%;
+}
+
+.vehicle_overview > .container > .table > .header p {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.vehicle_overview > .container > .table > .items {
+  display: grid;
+}
+
+.vehicle_overview > .container > .table > div p {
+  font-size: 14px;
+}
+
+.vehicle_overview > .container > .table > .items > a > .passenger_info > p {
+  width: fit-content;
+  padding: 2px 5px;
+  border-radius: 100px;
+  background-color: #32A75A;
+  color: #fff;
+  font-size: 12px;
+}
+
+.vehicle_overview > .container > .table p.date-time {
+  color: #32A75A;
+  font-weight: 800;
+}
+
+@media only screen and (min-width: 1440px) {
+  .vehicle_overview > .container {
+    padding: 24px 80px 0;
+  }
+
+  .vehicle_overview > .container > .table > .header,
+  .vehicle_overview > .container > .table > .items > a {
+    height: 65px;
+  }
+}

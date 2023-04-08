@@ -1,0 +1,121 @@
+.profile_form > .container {
+  padding: 24px 40px 80px;
+}
+
+/* Header */
+
+.profile_form > .container > header > div {
+  display: flex;
+  align-items: center;
+}
+
+.profile_form > .container > header > div > h1 {
+  margin-left: 16px;
+  font-size: 20px;
+}
+
+.profile_form > .container > header > p {
+  margin-top: 16px;
+  font-size: 16px;
+}
+
+/* Form */
+
+.profile_form > .container > form {
+  display: grid;
+  gap: 44px;
+  width: 1080px;
+  margin-top: 32px;
+}
+
+/* Avatar */
+
+.profile_form > .container > form > .avatar_container {
+  position: relative;
+  width: fit-content;
+}
+
+.profile_form > .container > form > .avatar_container > .avatar {
+  display: grid;
+  place-items: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 1000px;
+  background-color: #191919;
+}
+
+.profile_form > .container > form > .avatar_container > .avatar > p {
+  color: #FFF !important;
+  font-size: 64px;
+}
+
+.profile_form > .container > form > .avatar_container > .btn-container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #FFF;
+  border-radius: 1000px;
+  background-color: rgba(35, 35, 35, 0.75);
+}
+
+.profile_form > .container > form > .avatar_container > .btn-container > input {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+/* Form Containers */
+
+.profile_form > .container > form > section {
+  display: grid;
+  gap: 24px;
+}
+
+.profile_form > .container > form > section > h2 {
+  color: #636466;
+  font-size: 18px;
+}
+
+.profile_form > .container > form > section > div {
+  display: flex;
+  gap: 80px;
+}
+
+.profile_form > .container > form > div:not(:last-child) {
+  display: flex;
+  gap: 80px;
+}
+
+.profile_form > .container > form input,
+.profile_form > .container > form .input-field {
+  width: 500px;
+}
+
+.profile_form > .container > form .form-group > .input-field .icon-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  cursor: pointer !important;
+}
+
+.profile_form > .container > form > .actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 56px;
+  margin-left: auto;
+}
+
+.profile_form > .container > form > .actions > .btn {
+  width: 96px;
+}
+
+@media only screen and (min-width: 1440px) {
+  .profile_form > .container {
+    padding: 24px 80px 80px;
+  }
+}

@@ -1,0 +1,57 @@
+.guest_form > .container {
+  padding: 24px 40px 0;
+}
+
+/* Header */
+
+.guest_form > .container > header > div {
+  display: flex;
+  align-items: center;
+}
+
+.guest_form > .container > header > div > h1 {
+  margin-left: 16px;
+  text-transform: capitalize;
+  font-size: 20px;
+}
+
+.guest_form > .container > header > p {
+  margin-top: 16px;
+  font-size: 16px;
+}
+
+/* Form */
+
+.guest_form > .container > form {
+  display: grid;
+  gap: 24px;
+  width: 1080px;
+  margin-top: 32px;
+}
+
+.guest_form > .container > form > div:not(:last-child) {
+  display: flex;
+  gap: 80px;
+}
+
+.guest_form > .container > form input,
+.guest_form > .container > form .input-field {
+  width: 500px;
+}
+
+.guest_form > .container > form > .actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 56px;
+  margin-left: auto;
+}
+
+.guest_form > .container > form > .actions > .btn {
+  width: 96px;
+}
+
+@media only screen and (min-width: 1440px) {
+  .guest_form > .container {
+    padding: 24px 80px 0;
+  }
+}
