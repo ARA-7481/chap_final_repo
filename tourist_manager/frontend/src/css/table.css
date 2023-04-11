@@ -1,0 +1,6 @@
+.table-container {
+    margin: 0 auto;
+    width: calc(100% - 48px);
+    justify-content: center;
+    filter: drop-shadow(0px 5px 8px rgba(0, 0, 0, 0.2));
+  }
