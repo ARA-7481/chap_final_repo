@@ -1,8 +1,9 @@
-import {GET_VEHICLES, DELETE_VEHICLE, GETA_VEHICLE, UNGETA_VEHICLE, UNDELETE} from "../actions/types.js"
+import {GET_VEHICLES, GET_VEHICLESTODAY, DELETE_VEHICLE, GETA_VEHICLE, UNGETA_VEHICLE, UNDELETE} from "../actions/types.js"
 
 const initialState = {
     vehicles: [],
     vehicle: [],
+    filteredvehicles: [],
     isClicked: false,
     isDeleted: false
 }
@@ -13,6 +14,14 @@ export default function(state = initialState, action){
             return{
                 ...state,
                 vehicles: action.payload
+            };
+        
+        case GET_VEHICLESTODAY:
+            const currentDate = new Date().toISOString().slice(0, 10);
+            //const filteredVehicles = action.payload.filter(vehicle => vehicle.date === currentDate);
+            return {
+                ...state,
+                filteredvehicles: action.payload.filter((vehicle) => vehicle.date === currentDate),
             };
 
         case GETA_VEHICLE:

@@ -25,7 +25,10 @@ export class Header extends Component {
             </a>
             <ul className='navbar-nav ml-auto mt-2 mt-lg-0' >
                 <li className='nav-item'>
-                    <Link to="/logout" className="nav-link">Logout</Link>
+                <Link to="/dashboard" className="nav-link">Dashboard</Link>
+                    </li>
+                <li className='nav-item'>
+                <Link to="/logout" className="nav-link">Logout</Link>
                     </li>
             </ul>
           </div>

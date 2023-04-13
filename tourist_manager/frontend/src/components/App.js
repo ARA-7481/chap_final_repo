@@ -16,6 +16,8 @@ import VehicleDetail from './pages/VehicleDetail';
 import Overview from './pages/Overview';
 import Logout from './accounts/Logout';
 import Landingpage from './pages/Landingpage';
+import Dashboard from './pages/Dashboard';
+import Dailyqueue from './pages/Dailyqueue';
 
 function AppContent() {
   const location = useLocation();
@@ -36,6 +38,8 @@ function AppContent() {
           <Route exact path="/vehicledetail" element={<VehicleDetail />} />
           <Route exact path="/unauthorized" element={<Unauthorized />} />
           <Route exact path="/overview" element={<Overview />} />
+          <Route exact path="/dashboard" element={<Dashboard />} />
+          <Route exact path="/daily" element={<Dailyqueue />} />
         </Routes>
       </div>
     </Fragment>

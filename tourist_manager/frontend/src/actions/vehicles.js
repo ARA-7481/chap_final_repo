@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_VEHICLES, DELETE_VEHICLE, GETA_VEHICLE, UNGETA_VEHICLE, UNDELETE } from "./types";
+import { GET_VEHICLES, GET_VEHICLESTODAY, DELETE_VEHICLE, GETA_VEHICLE, UNGETA_VEHICLE, UNDELETE } from "./types";
 import { tokenConfig } from './auth';
 
 //GET VEHICLES
@@ -8,6 +8,16 @@ export const getVehicles = () => (dispatch, getState) => {
     .then(res =>{
         dispatch({
             type: GET_VEHICLES,
+            payload: res.data
+        });
+    }).catch(err => console.log(err));
+};
+
+export const getVehiclestoday = () => (dispatch, getState) => {
+    axios.get(`/api/vehicle`, tokenConfig(getState))
+    .then(res =>{
+        dispatch({
+            type: GET_VEHICLESTODAY,
             payload: res.data
         });
     }).catch(err => console.log(err));
