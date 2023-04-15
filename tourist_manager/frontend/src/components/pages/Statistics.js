@@ -76,7 +76,7 @@ function Statistics (props){
         </Card>
         <Card style={{ width: '900px' , height: '800px', marginLeft:'50px'}}>
         <button onClick={onClick} type="submit" className="btn btn-primary" style={{ width: '100px', height: '40px', marginLeft: '10px', marginTop: '10px' }}>Get Data</button>
-        <div style={{ width: '900px', height: '800px', marginLeft: '50px', border: '1px solid #ccc' }}>
+        <div>
         <h2>Data Card</h2>
         <p>Total earnings: {totalEarnings}</p>
         <p>Total domestic guests: {totalDomesticGuests}</p>
