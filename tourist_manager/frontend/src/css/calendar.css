@@ -1,0 +1,28 @@
+.calendar-container {
+    margin-bottom: 10px;
+    width: 350px;
+    border: 1px solid #b8c9da;
+    border-radius: 15px;
+  }
+  
+.react-calendar__tile--active {
+    background: #007bff;
+    color: white;
+  }
+
+.react-calendar__month-view__days__day {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    width: 30px;
+    outline: 1px solid #b8c9da;
+  }
+
+.react-calendar__navigation {
+    border-bottom: 1px solid #dee2e6;
+    padding: 0 60px;
+  }
+  
+.react-calendar__navigation button {
+    border: 1px solid transparent;
+    border-radius: 5px;
+  }

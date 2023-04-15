@@ -1,5 +1,5 @@
 from rest_framework import routers
-from .api import VehicleViewSet, TouristViewSet, LogDetailsViewSet
+from .api import VehicleViewSet, TouristViewSet, LogDetailsViewSet, SimpleVehicleViewSet
 from accounts.api import UserViewSet
 
 
@@ -9,6 +9,7 @@ from knox import views as knox_views
 router = routers.DefaultRouter()
 router.register('api/vehicle', VehicleViewSet, 'vehicle')
 router.register('api/tourist', TouristViewSet, 'tourist')
+router.register('api/simplevehicle', SimpleVehicleViewSet, 'simplevehicle')
 router.register('api/userlist', UserViewSet, 'users')
 #router.register('api/logdetails', LogDetailsViewSet, 'logdetails')
 

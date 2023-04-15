@@ -1,11 +1,13 @@
-import {GET_VEHICLES, GET_VEHICLESTODAY, DELETE_VEHICLE, GETA_VEHICLE, UNGETA_VEHICLE, UNDELETE} from "../actions/types.js"
+import {VEHICLE_ADDED, VEHICLEADD_FAIL, GET_VEHICLES, GET_VEHICLESTODAY, DELETE_VEHICLE, GETA_VEHICLE, UNGETA_VEHICLE, UNDELETE, GET_STATISTICS, SET_DATE} from "../actions/types.js"
 
 const initialState = {
     vehicles: [],
     vehicle: [],
     filteredvehicles: [],
+    dateforstatistics: null,
+    vehiclesforstatistics: [],    
     isClicked: false,
-    isDeleted: false
+    isDeleted: false,
 }
 
 export default function(state = initialState, action){
@@ -30,6 +32,16 @@ export default function(state = initialState, action){
                 vehicle: action.payload,
                 isClicked: true
             };
+
+        case VEHICLE_ADDED:
+            return{
+                ...state,
+                vehicle: action.payload,
+                vehicles: [...state.vehicles, action.payload],
+                filteredvehicles: [...state.filteredvehicles, action.payload]
+            };
+        case VEHICLEADD_FAIL:
+            
         case UNGETA_VEHICLE:
             return{
                 ...state,
@@ -47,7 +59,20 @@ export default function(state = initialState, action){
                 ...state,
                 isDeleted: false
             };
+
+        case GET_STATISTICS:
+            return{
+                ...state,
+                vehiclesforstatistics: action.payload
+            };
+        case SET_DATE:
+            return{
+                ...state,
+                dateforstatistics: action.payload
+                };
         default:
             return state;
+            
     }
+        
 }

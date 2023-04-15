@@ -18,18 +18,21 @@ import Logout from './accounts/Logout';
 import Landingpage from './pages/Landingpage';
 import Dashboard from './pages/Dashboard';
 import Dailyqueue from './pages/Dailyqueue';
+import Statistics from './pages/Statistics';
+import Datacard from './pages/Datacard';
 
 function AppContent() {
   const location = useLocation();
 
   return (
     <Fragment>
+      
        {location.pathname !== '/' && 
        location.pathname !== '/login' && 
        location.pathname !== '/register' && (
         <Header />
       )}
-      <div className="container">
+      <div className="container" style={{marginLeft:'180px' }}>
         <Routes>
           <Route exact path="/" element={<Landingpage />} />
           <Route exact path="/register" element={<Register />} />
@@ -40,6 +43,8 @@ function AppContent() {
           <Route exact path="/overview" element={<Overview />} />
           <Route exact path="/dashboard" element={<Dashboard />} />
           <Route exact path="/daily" element={<Dailyqueue />} />
+          <Route exact path="/statistics" element={<Statistics />} />
+          <Route exact path="/datacard" element={<Datacard />} />
         </Routes>
       </div>
     </Fragment>

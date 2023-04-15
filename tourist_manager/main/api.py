@@ -12,9 +12,6 @@ class VehicleViewSet(viewsets.ModelViewSet):
         permissions.IsAuthenticated
     ]
     serializer_class = VehicleSerializer
-    #filter_backends = [filters.SearchFilter, filters.OrderingFilter]
-    #search_fields = '__all__'
-    #ordering_fields = '__all__'
 
     def retrieve(self, request, pk=None):
         instance = self.get_object()
@@ -124,7 +121,19 @@ class TouristViewSet(viewsets.ModelViewSet):
     ]
     serializer_class = TouristSerializer
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
-    search_fields = ['name',]
+    search_fields = ['name','date','time']
+    ordering_fields = '__all__'
+    def perform_create(self, serializer):
+        serializer.save(added_by=self.request.user)
+
+class SimpleVehicleViewSet(viewsets.ModelViewSet):
+    queryset = Vehicle.objects.all()
+    permission_classes = [
+        permissions.IsAuthenticated
+    ]
+    serializer_class = VehicleSerializer
+    filter_backends = [filters.SearchFilter, filters.OrderingFilter]
+    search_fields = ['=plate_number','date','time']
     ordering_fields = '__all__'
     def perform_create(self, serializer):
         serializer.save(added_by=self.request.user)

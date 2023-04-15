@@ -1,6 +1,7 @@
 import axios from "axios";
-import { GET_VEHICLES, GET_VEHICLESTODAY, DELETE_VEHICLE, GETA_VEHICLE, UNGETA_VEHICLE, UNDELETE } from "./types";
+import { GET_STATISTICS, VEHICLE_ADDED, VEHICLEADD_FAIL, GET_VEHICLES, GET_VEHICLESTODAY, DELETE_VEHICLE, GETA_VEHICLE, UNGETA_VEHICLE, UNDELETE, SET_DATE } from "./types";
 import { tokenConfig } from './auth';
+import { returnErrors } from './messages';
 
 //GET VEHICLES
 export const getVehicles = () => (dispatch, getState) => {
@@ -59,3 +60,43 @@ export const unDelete = (id) => (dispatch, getState) => {
         payload: null
     })
 };
+
+//Post
+
+export const addVehicle = (formData) => (dispatch, getState) => {
+    const body = JSON.stringify({ 
+        ...formData,
+        passenger_count: Number(formData.passenger_count),
+        passenger_count_domestic: Number(formData.passenger_count_domestic),
+        passenger_count_local: Number(formData.passenger_count_local),
+        passenger_count_international: Number(formData.passenger_count_international) 
+    });
+    console.log(body);
+    axios.post('/api/vehicle/', body, tokenConfig(getState))
+    .then(res =>{
+        dispatch({
+            type: VEHICLE_ADDED,
+            payload: res.data
+        });
+    }).catch(err => console.log(err));
+};
+
+export const getStatistics = (dateFilter) => (dispatch, getState) => {
+    axios
+      .get(`/api/simplevehicle/?search=${dateFilter}`, tokenConfig(getState))
+      .then((res) => {
+        dispatch({
+          type: GET_STATISTICS,
+          payload: res.data,
+        });
+        console.log(res.data)
+      }).catch((err) => console.log(err));
+    };
+    
+export const setThedate = (dateFilter) => (dispatch, getState) => {
+        dispatch({
+            type: SET_DATE,
+            payload: dateFilter
+        })
+
+  };

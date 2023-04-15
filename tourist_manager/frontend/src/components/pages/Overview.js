@@ -15,16 +15,18 @@ function Overview(props) {
     props.getaVehicle(vehicleId);
     navigate('/vehicledetail');
   };
-
+  
   useEffect(() => {
     props.getVehicles();
   }, []);
 
   return (
     <Fragment>
-      <h2>Vehicles</h2>
-      <div className="table-container">
-      <Table style={{ width: '120%' }} striped bordered hover variant="dark">
+      <div style={{ width: '120%', marginLeft:'1px' }}>
+      <h2 className="text-center">Vehicles</h2>
+      <div className="d-flex justify-content-center">
+      <div className="table-container" style={{width: '100%'}}>
+      <Table striped bordered hover variant="dark">
         <thead>
           <tr>
             <th>Transaction Code</th>
@@ -34,11 +36,12 @@ function Overview(props) {
             <th>Passengers</th>
             <th>Description</th>
             <th>Date</th>
+            <th>Time</th>
             <th>Delete</th>
           </tr>
         </thead>
         <tbody>
-          {props.vehicles.map((vehicle) => (
+        {props.vehicles.sort((a, b) => new Date(b.date) - new Date(a.date)).map((vehicle) => (
             <tr key={vehicle.vehicle_id} onClick={() => handleRowClick(vehicle.vehicle_id)}>
               <td>{vehicle.vehicle_id}</td>
               <td>{vehicle.plate_number}</td>
@@ -47,6 +50,7 @@ function Overview(props) {
               <td>{vehicle.passenger_count}</td>
               <td>{vehicle.description}</td>
               <td>{vehicle.date}</td>
+              <td>{vehicle.time}</td>
               {/* ... */}
               <td>
                 <button
@@ -60,6 +64,8 @@ function Overview(props) {
           ))}
         </tbody>
       </Table>
+      </div>
+      </div>
       </div>
     </Fragment>
   );

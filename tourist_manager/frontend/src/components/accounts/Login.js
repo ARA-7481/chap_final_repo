@@ -29,8 +29,9 @@ export class Login extends Component {
     }
     const { username, password } = this.state;
     return (
-      <div className="col-md-6 m-auto">
-        <div className="card card-body mt-5">
+      <div className="d-flex justify-content-center">
+      <div className="col-md-6 offset-md-2" >
+        <div className="card card-body mt-5 ml-5 mr-1" >
           <h2 className="text-center">Login</h2>
           <form onSubmit={this.onSubmit}>
             <div className="form-group">
@@ -65,6 +66,7 @@ export class Login extends Component {
             </p>
           </form>
         </div>
+      </div>
       </div>
     );
   }

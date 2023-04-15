@@ -12,3 +12,7 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 export const UNDELETE = 'UNDELETE';
+export const VEHICLE_ADDED ='VEHICLE_ADDED';
+export const VEHICLEADD_FAIL ='VEHICLEADD_FAIL';
+export const GET_STATISTICS ='GET_STATISTICS';
+export const SET_DATE ='SET_DATE';

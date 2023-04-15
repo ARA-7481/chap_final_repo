@@ -51,5 +51,9 @@ class Vehicle(models.Model):
     description = models.TextField(null=True)
     date = models.DateField(auto_now_add=True)
     time = models.TimeField(auto_now_add=True)
+    passenger_count_domestic = models.PositiveIntegerField(null=True)
+    passenger_count_local = models.PositiveIntegerField(null=True)
+    passenger_count_international = models.PositiveIntegerField(null=True)
+    total_bill = models.FloatField(null=True)
     added_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, to_field='username')
 

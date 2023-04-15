@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 export class Header extends Component {
   render() {
     return (
-      <nav className="navbar navbar-expand-sm navbar-light bg-light">
+      <nav className="navbar navbar-expand-sm navbar-light bg-light" >
           <button
             className="navbar-toggler"
             type="button"
@@ -21,7 +21,7 @@ export class Header extends Component {
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <a className="navbar-brand" href="#">
-              Chocolate Hills Admininstration Portal
+              Homepage
             </a>
             <ul className='navbar-nav ml-auto mt-2 mt-lg-0' >
                 <li className='nav-item'>
