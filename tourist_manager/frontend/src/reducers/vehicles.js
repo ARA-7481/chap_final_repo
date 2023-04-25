@@ -1,13 +1,17 @@
-import {VEHICLE_ADDED, VEHICLEADD_FAIL, GET_VEHICLES, GET_VEHICLESTODAY, DELETE_VEHICLE, GETA_VEHICLE, UNGETA_VEHICLE, UNDELETE, GET_STATISTICS, SET_DATE} from "../actions/types.js"
+import {VEHICLE_ADDED, VEHICLEADD_FAIL, GET_VEHICLES, GET_VEHICLESTODAY, DELETE_VEHICLE, GETA_VEHICLE, UNGETA_VEHICLE, UNDELETE, GET_STATISTICS, SET_DATE, GET_RATES, SET_RATES} from "../actions/types.js"
 
 const initialState = {
     vehicles: [],
     vehicle: [],
     filteredvehicles: [],
     dateforstatistics: null,
-    vehiclesforstatistics: [],    
+    vehiclesforstatistics: [],
+    local_rate: 0,
+    domestic_rate: 0,    
+    international_rate: 0,
     isClicked: false,
     isDeleted: false,
+
 }
 
 export default function(state = initialState, action){
@@ -19,8 +23,7 @@ export default function(state = initialState, action){
             };
         
         case GET_VEHICLESTODAY:
-            const currentDate = new Date().toISOString().slice(0, 10);
-            //const filteredVehicles = action.payload.filter(vehicle => vehicle.date === currentDate);
+            const currentDate = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Manila' });
             return {
                 ...state,
                 filteredvehicles: action.payload.filter((vehicle) => vehicle.date === currentDate),
@@ -51,8 +54,7 @@ export default function(state = initialState, action){
             return {
                 ...state,
                 vehicles: state.vehicles.filter((vehicle) => vehicle.vehicle_id !== action.payload),
-                isClicked: false,
-                isDeleted: true
+                filteredvehicles: state.filteredvehicles.filter((vehicle) => vehicle.vehicle_id !== action.payload),        
             };
         case UNDELETE:
             return{
@@ -70,6 +72,23 @@ export default function(state = initialState, action){
                 ...state,
                 dateforstatistics: action.payload
                 };
+
+        case GET_RATES:
+            return{
+                ...state,
+                local_rate: action.payload.local_rate,
+                domestic_rate: action.payload.domestic_rate,
+                international_rate: action.payload.international_rate,
+                };
+
+        case SET_RATES:
+            return{
+                ...state,
+                local_rate: action.payload.local_rate,
+                domestic_rate: action.payload.domestic_rate,
+                international_rate: action.payload.international_rate,
+                };
+        
         default:
             return state;
             

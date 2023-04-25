@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_STATISTICS, VEHICLE_ADDED, VEHICLEADD_FAIL, GET_VEHICLES, GET_VEHICLESTODAY, DELETE_VEHICLE, GETA_VEHICLE, UNGETA_VEHICLE, UNDELETE, SET_DATE } from "./types";
+import { GET_STATISTICS, VEHICLE_ADDED, VEHICLEADD_FAIL, GET_VEHICLES, GET_VEHICLESTODAY, DELETE_VEHICLE, GETA_VEHICLE, UNGETA_VEHICLE, UNDELETE, SET_DATE, GET_RATES, SET_RATES, GET_USERS, DELETE_USER } from "./types";
 import { tokenConfig } from './auth';
 import { returnErrors } from './messages';
 
@@ -28,7 +28,6 @@ export const deleteVehicles = (id) => (dispatch, getState) => {
     axios
       .delete(`/api/vehicle/${id}/`, tokenConfig(getState))
       .then((res) => {
-        dispatch(createMessage({ deleteVehicles: 'Vehicle Deleted' }));
         dispatch({
           type: DELETE_VEHICLE,
           payload: id,
@@ -45,20 +44,6 @@ export const getaVehicle = (id) => (dispatch, getState) => {
             payload: res.data
         });
     }).catch(err => console.log(err));
-};
-
-export const ungetaVehicle = (id) => (dispatch, getState) => {
-        dispatch({
-            type: UNGETA_VEHICLE,
-            payload: null
-        })
-};
-
-export const unDelete = (id) => (dispatch, getState) => {
-    dispatch({
-        type: UNDELETE,
-        payload: null
-    })
 };
 
 //Post
@@ -100,3 +85,58 @@ export const setThedate = (dateFilter) => (dispatch, getState) => {
         })
 
   };
+
+export const getRates = () => (dispatch, getState) => {
+    axios.get(`/api/rates/1/`, tokenConfig(getState))
+    .then(res =>{
+        dispatch({
+            type: GET_RATES,
+            payload: res.data
+        });
+    }).catch(err => console.log(err));
+
+
+};
+
+
+export const setRates = (formData) => (dispatch, getState) => {
+    const body = JSON.stringify({ 
+        ...formData,
+        local_rate: Number(formData.local_rate),
+        domestic_rate: Number(formData.domestic_rate),
+        international_rate: Number(formData.international_rate),
+    });
+    console.log(body);
+    axios.patch('/api/rates/1/', body, tokenConfig(getState))
+    .then(res =>{
+        dispatch({
+            type: SET_RATES,
+            payload: res.data
+        });
+    }).catch(err => console.log(err));
+};
+
+
+export const getUsers = () => (dispatch, getState) => {
+    axios.get(`/api/userlist/`, tokenConfig(getState))
+    .then(res =>{
+        dispatch({
+            type: GET_USERS,
+            payload: res.data,
+        });
+    }).catch(err => console.log(err));
+
+
+};
+
+export const deleteUser = (id) => (dispatch, getState) => {
+    axios.delete(`/api/userlist/${id}`, tokenConfig(getState))
+    .then(res =>{
+        dispatch({
+            type: DELETE_USER,
+            payload: id
+        });
+    }).catch(err => console.log(err));
+
+
+};

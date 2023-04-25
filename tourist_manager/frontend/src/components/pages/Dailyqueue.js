@@ -16,40 +16,46 @@ function Dailyqueue(props) {
     props.getaVehicle(vehicleId);
     navigate('/vehicledetail');
   };
+
+  const handleDelete = (vehicleId) => {
+    props.deleteVehicles(vehicleId);
+    props.getVehiclestoday();
+  };
+
   useEffect(() => {
     props.getVehiclestoday();
-  }, [props.filteredvehicles]);
+  }, []);
 
 
   return (
     <Fragment>
-      <h2 className="text-center">Vehicles Today</h2>
       <div className="d-flex justify-content-center">
-        <div className="table-container" style={{maxHeight: '40vh', overflowY: 'auto', width: '100%', marginLeft:'1px' }}>
+        <div className="table-container rounded" style={{maxHeight: '85vh', overflowY: 'auto', width: '150vh', marginTop: '10px', marginRight: '20px'}}>
           <Table striped bordered hover variant="dark" >
             <thead>
               <tr>
-                <th>Transaction Code</th>
-                <th>Plate Number</th>
-                <th>Classification</th>
-                <th>Type</th>
-                <th>Domestic</th>
-                <th>Local</th>
-                <th>International</th>
-                <th>Total Guests</th>
-                <th>Total Bill</th>
-                <th>Description</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Inspect</th>
-                <th>Delete</th>
+                <th className='align-middle'>Transaction Code</th>
+                <th className='align-middle'>Plate Number</th>
+                <th className='align-middle'>Classification</th>
+                <th className='align-middle'>Type</th>
+                <th className='align-middle'>Domestic</th>
+                <th className='align-middle'>Local</th>
+                <th className='align-middle'>International</th>
+                <th className='align-middle'>Total Guests</th>
+                <th className='align-middle'>Total Bill</th>
+                <th className='align-middle'>Description</th>
+                <th className='align-middle'>Date</th>
+                <th className='align-middle'>Time</th>
+                <th className='align-middle'>Added By</th>
+                <th className='align-middle'>Inspect</th>
+                <th className='align-middle'>Delete</th>
               </tr>
             </thead>
             <tbody>
               {props.filteredvehicles
                 .sort((a, b) => new Date(`${b.date} ${b.time}`) - new Date(`${a.date} ${a.time}`))
                 ?.map((vehicle) => (
-                  <tr
+                  <tr key={vehicle.vehicle_id}
                   >
                     <td>{vehicle.vehicle_id}</td>
                     <td>{vehicle.plate_number}</td>
@@ -60,9 +66,10 @@ function Dailyqueue(props) {
                     <td>{vehicle.passenger_count_international}</td>
                     <td>{vehicle.passenger_count}</td>
                     <td>{vehicle.total_bill}</td>
-                    <td>{vehicle.description}</td>
+                    <td style={{maxWidth: '250px'}}>{vehicle.description}</td>
                     <td>{vehicle.date}</td>
                     <td>{vehicle.time}</td>
+                    <td>{vehicle.added_by}</td>
 
                     <td>
                     <button
@@ -74,7 +81,7 @@ function Dailyqueue(props) {
                     </td>
                     <td>
                       <button
-                        onClick={() => props.deleteVehicles(vehicle.vehicle_id)}
+                        onClick={() => handleDelete(vehicle.vehicle_id)}
                         className="btn btn-danger btn-sm"
                       >
                         Delete

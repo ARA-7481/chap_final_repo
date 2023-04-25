@@ -1,19 +1,22 @@
-import Overview from './Overview'
-import Header from '../reusable/Header'
 import Dailyqueue from './Dailyqueue'
 import React, { useState, Fragment } from 'react'
 import Vehicleform from './Vehicleform'
-import { Form } from 'react-router-dom'
+import { Card } from 'react-bootstrap';
 
 
 export default function Dashboard() {
   return (
-    <Fragment>
-      <div style={{ width: '120%', marginLeft:'1px' }}>
-      <Dailyqueue />
-      <Vehicleform  />
-      </div>
-    </Fragment>
+    <div className='container'>
+    <div style={{ display: 'flex', width: '145%' }}>
+    <Card style={{ width: '80%', height: '100%', border: "none" }}>
+      <h2 className='text-center'>Vehicle Daily List</h2>
+        <Dailyqueue />
+        </Card>
+    <Card style={{ width: '20%', height: '100%', border: "none" }}>
+        <Vehicleform  />
+        </Card>
+  </div>
+  </div>
   )
 
 }

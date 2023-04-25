@@ -1,7 +1,7 @@
 .calendar-container {
     margin-bottom: 10px;
     width: 350px;
-    border: 1px solid #b8c9da;
+    border: 3px solid #454c53;
     border-radius: 15px;
   }
   
@@ -13,13 +13,16 @@
 .react-calendar__month-view__days__day {
     border-radius: 8px;
     border: 1px solid transparent;
-    width: 30px;
-    outline: 1px solid #b8c9da;
+    width: 50px;
+    outline: 1px solid #333333;
   }
 
 .react-calendar__navigation {
     border-bottom: 1px solid #dee2e6;
-    padding: 0 60px;
+    padding: 0 80px;
+    outline: 1px solid #333333;
+    display: flex;
+    justify-content: center;
   }
   
 .react-calendar__navigation button {

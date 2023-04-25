@@ -1,10 +1,11 @@
-import { USER_LOADING, USER_LOADED, AUTH_ERROR, LOGIN_SUCCESS, LOGIN_FAIL, LOGIN, LOGOUT_SUCCESS } from "../actions/types";
+import { USER_LOADING, USER_LOADED, AUTH_ERROR, LOGIN_SUCCESS, LOGIN_FAIL, LOGIN, LOGOUT_SUCCESS, REGISTER_SUCCESS, GET_USERS, DELETE_USER } from "../actions/types";
 
 const initialState = {
     token: localStorage.getItem('token'),
     isAuthenticated: false,
     isLoading: false,
     user: {},
+    users: [],
     message: null,
     profile: null
 }
@@ -32,7 +33,7 @@ export default function(state = initialState, action) {
                 isLoading: false,
                 user: action.payload.user,
                 message: action.payload.message,
-                profile: action.payload.profile
+                profile: action.payload.user.profile.account_type
             }
         case LOGIN_FAIL:
 
@@ -59,7 +60,6 @@ export default function(state = initialState, action) {
             }
 
         case LOGOUT_SUCCESS:
-        
         case AUTH_ERROR:
             localStorage.removeItem('token');
             return{
@@ -69,6 +69,24 @@ export default function(state = initialState, action) {
                 isAuthenticated: false,
                 isLoading: false
             }
+         case REGISTER_SUCCESS:
+            console.log(state.users)
+            return{
+                ...state,
+                users: [...state.users, action.payload.user],
+            };
+         case GET_USERS:
+            console.log(state.users)
+            return{
+                ...state,
+                users: action.payload
+                };
+
+        case DELETE_USER:
+            return {
+                ...state,
+                users: state.users.filter((user) => user.id !== action.payload),
+                    };
         default:
             return state;
     }

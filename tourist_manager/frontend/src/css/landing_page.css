@@ -1,241 +1,5 @@
-@font-face {
-  font-family: 'Calisga';
-  src: url('../assets/fonts/Calisga.ttf');
-}
-
-* {
-  box-sizing: border-box;
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
-  font-family: 'Arial';
-  color: #191919;
-}
-
-body {
-  overflow-y: hidden;
-  /* height: 100vh; */
-}
-
-a {
-  outline: none;
-  color: #191919;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #191919 !important;
-}
-
-.container {
-  max-width: 1920px;
-  margin: 0 auto;
-}
-
-/* Form Group & Form Check */
-
-.form-check {
-  display: flex;
-}
-
-.form-check > p {
-  margin-left: 8px;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.form-group {
-  display: grid;
-  gap: 8px;
-}
-
-.form-group > label {
-  color: #191919;
-  font-family: 'Inter';
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.form-group > label > .required-symbol {
-  margin: 0 4px;
-  color: #191919;
-}
-
-.form-group > .input-field {
-  position: relative;
-  display: flex;
-  align-items: center;
-  border: 1px solid #B1B3B6;
-  border-radius: 4px;
-  background-color: #fff;
-}
-
-.form-group > .input-field > input,
-.form-group > .input-field > select {
-  width: 95%;
-  border: none !important;
-}
-
-.form-group > .input-field > .prefix {
-  margin: 0 12px;
-}
-
-
-.form-group > textarea {
-  height: 96px;
-  border: 1px solid #B1B3B6 !important;
-}
-
-select option {
-  width: 100% !important;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-}
-
-input[type="checkbox"] {
-  accent-color: #191919;
-  background-color: #fff;
-}
-
-input:focus,
-.input-field:focus-within,
-select,
-textarea {
-  outline: none;
-  border: 1px solid #191919 !important;
-}
-
-input[disabled] {
-  border: 1px solid #B1B3B6 !important;
-  background-color: #F5F5F5 !important;
-  color: #B1B3B6 !important;
-  cursor: auto !important;
-}
-
-::placeholder {
-  color: #B1B3B6;
-}
-
-/* Error Message */
-
-.error > p {
-  color: #C01F28;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-
-input[type="submit"]:hover,
-button:hover,
-.btn:hover {
-  background-color: #2D2D2D;
-}
-
-.outline-btn {
-  border: 1px solid #B1B3B6;
-  background-color: #fff;
-  color: #191919;
-}
-
-.outline-btn:hover {
-  background-color: #191919;
-  color: #fff;
-}
-
-.dropdown_btn_container > .dropdown_btn {
-  display: flex;
-  background-color: #fff;
-  cursor: pointer;
-}
-
-.dropdown_btn_container > .dropdown_btn > div {
-  background-color: #191919;
-  color: #fff;
-}
-
-.dropdown_btn_container > .dropdown_btn > div:first-child {
-  margin-right: 1px;
-  padding: 8px 24px;
-  border-radius: 2px 0px 0px 2px;
-  font-size: 14px;
-}
-
-.dropdown_btn_container > .dropdown_btn > div:last-child {
-  display: grid;
-  place-content: center;
-  padding: 4px 8px;
-  border-radius: 0px 4px 4px 0px;
-}
-
-.dropdown_btn_container > .menu {
-  position: absolute;
-  z-index: 1;
-  display: grid;
-  width: 114px;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
-  background-color: #fff;
-}
-
-.dropdown_btn_container > .menu > a {
-  padding: 8px 24px;
-  font-size: 14px;
-}
-
-.dropdown_btn_container > .menu > a:hover {
-  background-color: #EEE;
-}
-
-.dropdown_btn_container > .menu > a:first-child {
-  border-bottom: 1px solid #B1B3B6;
-}
-
-/* Tabs */
-
-.tabs {
-  display: flex;
-  gap: 40px;
-}
-
-.tabs > .tab {
-  padding-bottom: 12px;
-  cursor: pointer;
-}
-
-.tabs > .tab.active {
-  border-bottom: 3px solid #191919;
-}
-
-.tabs > .tab > p {
-  padding: 2px 0;
-  font-size: 14px;
-}
-
-.tabs > .tab > p > span {
-  margin-left: 2px;
-  padding: 2px 5px;
-  border-radius: 100px;
-  background-color: #808080;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 300 !important;
-}
-
-.tabs > .tab.active > p {
-  color: #191919;
-  font-weight: 700;
-}
-
-.tabs > .tab.active > p > span {
-  background-color: #191919;
-}
-
-
-
 h2 {
-  color: #E29016;
+  color: #0f0b04;
 }
 
 /* Hero */
@@ -244,14 +8,14 @@ h2 {
   position: relative;
   display: grid;
   place-content: center;
-  width: 100vw;
+  width: 85vw;
   height: 100vh;
 }
 
 #hero > .container {
   display: grid;
-  gap: 40px;
-  padding: 0 16px;
+  gap: 0px;
+  padding: 0 0px;
 }
 
 #hero h1 {
@@ -285,7 +49,7 @@ h2 {
   top: 0;
   left: 0;
   z-index: -1;
-  width: 100vw;
+  width: 95vw;
   height: 100vh;
   background-image: url('../assets/images/hero_img_1.png');
   background-position: 50% 25%;
@@ -305,7 +69,7 @@ h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 80px 16px;
+  padding: 20px 16px;
 }
 
 #about img {

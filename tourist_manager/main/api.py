@@ -1,8 +1,8 @@
-from main.models import Vehicle, Tourist, LogDetails
+from main.models import Vehicle, Tourist, LogDetails, Rates
 from rest_framework import viewsets, generics, permissions, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from .serializers import VehicleSerializer, TouristSerializer, LogDetailsSerializer
+from .serializers import VehicleSerializer, TouristSerializer, LogDetailsSerializer, RatesSerializer
 from rest_framework import filters
 from django.forms.models import model_to_dict
 
@@ -135,6 +135,15 @@ class SimpleVehicleViewSet(viewsets.ModelViewSet):
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
     search_fields = ['=plate_number','date','time']
     ordering_fields = '__all__'
+    def perform_create(self, serializer):
+        serializer.save(added_by=self.request.user)
+
+class RatesViewSet(viewsets.ModelViewSet):
+    queryset = Rates.objects.all()
+    permission_classes = [
+        permissions.IsAuthenticated
+    ]
+    serializer_class = RatesSerializer
     def perform_create(self, serializer):
         serializer.save(added_by=self.request.user)
 
