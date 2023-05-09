@@ -1,7 +1,7 @@
 import axios from "axios";
 import { returnErrors } from './messages';
 
-import {  USER_LOADING, USER_LOADED, AUTH_ERROR, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_SUCCESS} from "./types";
+import {  USER_LOADING, USER_LOADED, AUTH_ERROR, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_SUCCESS, REGISTER_SUCCESS} from "./types";
 
 export const loadUser = () => (dispatch, getState) => {
   // User Loading
@@ -22,8 +22,6 @@ export const loadUser = () => (dispatch, getState) => {
       });
     });
 };
-
-
 
 
 
@@ -85,4 +83,29 @@ export const tokenConfig = (getState) => {
   }
 
   return config;
+};
+
+
+export const setRegister = (formData) => (dispatch, getState) => {
+  // Create a new object with the desired structure
+  const data = {
+    username: formData.username,
+    first_name: formData.first_name,
+    last_name: formData.last_name,
+    password: formData.password,
+    profile: {
+      account_type: formData.account_type
+    }
+  };
+
+  // Convert the new object to JSON
+  const body = JSON.stringify(data);
+
+  axios.post('/api/auth/register', body, tokenConfig(getState))
+    .then(res => {
+      dispatch({
+        type: REGISTER_SUCCESS,
+        payload: res.data
+      });
+    }).catch(err => console.log(err));
 };

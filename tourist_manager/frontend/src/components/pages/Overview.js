@@ -22,50 +22,61 @@ function Overview(props) {
 
   return (
     <Fragment>
-      <div style={{ width: '120%', marginLeft:'1px' }}>
-      <h2 className="text-center">Vehicles</h2>
       <div className="d-flex justify-content-center">
-      <div className="table-container" style={{width: '100%'}}>
-      <Table striped bordered hover variant="dark">
-        <thead>
-          <tr>
-            <th>Transaction Code</th>
-            <th>Plate Number</th>
-            <th>Classification</th>
-            <th>Type</th>
-            <th>Passengers</th>
-            <th>Description</th>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-        {props.vehicles.sort((a, b) => new Date(b.date) - new Date(a.date)).map((vehicle) => (
-            <tr key={vehicle.vehicle_id} onClick={() => handleRowClick(vehicle.vehicle_id)}>
-              <td>{vehicle.vehicle_id}</td>
-              <td>{vehicle.plate_number}</td>
-              <td>{vehicle.vehicle_classification}</td>
-              <td>{vehicle.vehicle_type}</td>
-              <td>{vehicle.passenger_count}</td>
-              <td>{vehicle.description}</td>
-              <td>{vehicle.date}</td>
-              <td>{vehicle.time}</td>
-              {/* ... */}
-              <td>
-                <button
-                  onClick={() => props.deleteVehicles(vehicle.vehicle_id)}
-                  className="btn btn-danger btn-sm"
-                >
-                  Delete
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-      </div>
-      </div>
+        <div className="table-container rounded" style={{maxHeight: '90vh', overflowY: 'auto', width: '100%', maxWidth: '100%', marginTop: '0px', marginRight: '0px', marginLeft: '0px'}}>
+          <Table striped bordered hover variant="dark" >
+            <thead>
+              <tr>
+                <th className='align-middle'>Transaction Code</th>
+                <th className='align-middle'>Plate Number</th>
+                <th className='align-middle'>Classification</th>
+                <th className='align-middle'>Type</th>
+                <th className='align-middle'>Domestic</th>
+                <th className='align-middle'>Local</th>
+                <th className='align-middle'>International</th>
+                <th className='align-middle'>Total Guests</th>
+                <th className='align-middle'>Total Bill</th>
+                <th className='align-middle'>Description</th>
+                <th className='align-middle'>Date</th>
+                <th className='align-middle'>Time</th>
+                <th className='align-middle'>Added By</th>
+                <th className='align-middle'>Inspect</th>
+              </tr>
+            </thead>
+            <tbody>
+              {props.vehicles
+                .sort((a, b) => new Date(`${b.date} ${b.time}`) - new Date(`${a.date} ${a.time}`))
+                ?.map((vehicle) => (
+                  <tr key={vehicle.vehicle_id}
+                  >
+                    <td>{vehicle.vehicle_id}</td>
+                    <td>{vehicle.plate_number}</td>
+                    <td>{vehicle.vehicle_classification}</td>
+                    <td>{vehicle.vehicle_type}</td>
+                    <td>{vehicle.passenger_count_domestic}</td>
+                    <td>{vehicle.passenger_count_local}</td>
+                    <td>{vehicle.passenger_count_international}</td>
+                    <td>{vehicle.passenger_count}</td>
+                    <td>{vehicle.total_bill}</td>
+                    <td style={{maxWidth: '250px'}}>{vehicle.description}</td>
+                    <td>{vehicle.date}</td>
+                    <td>{vehicle.time}</td>
+                    <td>{vehicle.added_by}</td>
+                    
+
+                    <td>
+                    <button
+                        onClick={() => handleRowClick(vehicle.vehicle_id)}
+                        className="btn btn-info btn-sm"
+                      >
+                        Inspect
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </Table>
+        </div>
       </div>
     </Fragment>
   );

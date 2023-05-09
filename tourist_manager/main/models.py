@@ -1,10 +1,19 @@
 from django.db import models
+from datetime import datetime
 from django.contrib.auth.models import User
 import random
 import string
 
-def random_code_generator(length=10):
+def random_code_generator(length=3):
     return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
+
+def transaction_code_generator(length=15):
+    current_date = datetime.now().strftime('%Y%m%d')
+    in_between = "-"
+    vehicle_count = Vehicle.objects.count()
+    vehicle_count_str = str(vehicle_count).zfill(5)
+    vehicle_unique_code = random_code_generator()
+    return f'{current_date}{in_between}{vehicle_count_str}{in_between}{vehicle_unique_code}'
     
 class LogDetails(models.Model):
     log_code = models.CharField(max_length=10, primary_key=True, unique=True, default=random_code_generator, editable=False)
@@ -41,7 +50,7 @@ class Vehicle(models.Model):
         ('car','car'),
         ('others','others'),
     )
-    vehicle_id = models.CharField(max_length=10, primary_key=True, unique=True, default=random_code_generator, editable=False)
+    vehicle_id = models.CharField(max_length=10, primary_key=True, unique=True, default=transaction_code_generator, editable=False)
     plate_number = models.CharField(max_length=20)
     drivers = models.ForeignKey(Tourist, on_delete=models.SET_NULL, null=True, related_name='vehicle_used')
     vehicle_classification = models.CharField(max_length=20, choices=CLASSIFICATION)
@@ -57,3 +66,7 @@ class Vehicle(models.Model):
     total_bill = models.FloatField(null=True)
     added_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, to_field='username')
 
+class Rates(models.Model):
+    domestic_rate = models.PositiveIntegerField()
+    local_rate = models.PositiveIntegerField()
+    international_rate = models.PositiveIntegerField()

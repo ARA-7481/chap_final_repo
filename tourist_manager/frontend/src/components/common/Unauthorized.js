@@ -1,19 +1,25 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+import React, { useState, Fragment } from 'react';
 
-const Unauthorized = () => {
+function Unauthorized(){
     const navigate = useNavigate();
-
-    const goBack = () => navigate(-1);
+    const goBack = () => {
+        navigate('/dashboard');
+    }
 
     return (
-        <section>
+    <Fragment>
+      <div style={{ width: '120%', marginLeft:'1px' }}>
+      <section>
             <h1>Unauthorized</h1>
             <br />
             <p>You do not have access to the requested page.</p>
             <div className="flexGrow">
-                <button onClick={goBack}>Go Back</button>
+                <button className="btn btn-primary mx-auto" onClick={goBack}>Return To Dashboard</button>
             </div>
         </section>
+      </div>
+    </Fragment>
     )
 }
 

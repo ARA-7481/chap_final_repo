@@ -10,7 +10,7 @@ function Logout(props) {
     const navigate = useNavigate();
     useEffect(() => {
       props.logout();
-      navigate('/login');
+      navigate('/');
     }, []);
   
     return null;
