@@ -29,7 +29,7 @@ export class Login extends Component {
     }
     const { username, password } = this.state;
     return (
-      <div className="d-flex justify-content-center" style={{marginTop: "150px"}}>
+      <div className="d-flex justify-content-center" style={{marginTop: "120px"}}>
       <div className="col-md-5 " >
       
         <div className="card bg-transparent border-0 card-body mt-5 ml-5 mr-1" >

@@ -19,7 +19,7 @@ export default function Dashboard() {
     
     <div style={{ display: 'flex', width: '100%', alignItems: 'flex-start', backgroundImage:`url(${BG})`, backgroundSize: 'cover' }}>
 
-    <Card style={{ backgroundColor:'rgba(255, 255, 255, 0)', width: '3.3%', height: '100%', border: "none", display: 'flex', alignItems: 'flex-start', marginLeft: '0px', marginRight:'0px' }}>
+    <Card style={{ backgroundColor:'rgba(255, 255, 255, 0)', width: '3.3%', height: '100%', border: "none", display: 'flex', alignItems: 'flex-start', marginLeft: '0px', marginRight:'20px' }}>
     <Navbar expand="1px" style={{ backgroundColor:'rgba(200, 211, 211, 0.5)', zIndex: 9999}}>
       <Container>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -46,12 +46,12 @@ export default function Dashboard() {
     </Navbar>
 </Card>
 
-    <Card style={{backgroundColor:'rgba(255, 255, 255, 0)', width: '75%', height: '100%', border: "none", marginLeft: '0px' }}>
+    <Card style={{backgroundColor:'rgba(255, 255, 255, 0)', width: '75%', height: '100%', border: "none", marginLeft: '25px' }}>
   <h4 className='center-text'>DAILY VEHICLE LIST</h4>
   <Dailyqueue />
 </Card>
 
-    <Card style={{backgroundColor:'rgba(255, 255, 255, 0)', width: '15%', height: '1100px', border: "none", marginTop: '63px', marginLeft: '70px', marginRight: '0px'}}>
+    <Card style={{backgroundColor:'rgba(255, 255, 255, 0)', width: '20%', height: '1100px', border: "none", marginTop: '63px', marginLeft: '70px', marginRight: '10px'}}>
         <Vehicleform  />
         </Card>
      

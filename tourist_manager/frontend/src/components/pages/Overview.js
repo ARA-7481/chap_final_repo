@@ -23,7 +23,7 @@ function Overview(props) {
   return (
     <Fragment>
       <div className="d-flex justify-content-center">
-        <div className="table-container rounded" style={{maxHeight: '90vh', overflowY: 'auto', width: '100%', maxWidth: '100%', marginTop: '0px', marginRight: '0px', marginLeft: '0px'}}>
+        <div className="table-container rounded" style={{maxHeight: '90vh', overflowY: 'auto', width: '100%', marginTop: '0px', marginRight: '0px', marginLeft: '0px'}}>
           <Table striped bordered hover variant="dark" >
             <thead>
               <tr>
@@ -58,7 +58,7 @@ function Overview(props) {
                     <td>{vehicle.passenger_count_international}</td>
                     <td>{vehicle.passenger_count}</td>
                     <td>{vehicle.total_bill}</td>
-                    <td style={{maxWidth: '250px'}}>{vehicle.description}</td>
+                    <td style={{width:'350px' ,maxWidth: '400px'}}>{vehicle.description}</td>
                     <td>{vehicle.date}</td>
                     <td>{vehicle.time}</td>
                     <td>{vehicle.added_by}</td>

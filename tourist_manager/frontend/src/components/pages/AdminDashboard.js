@@ -42,7 +42,7 @@ function AdminDashboard(props){
     </Navbar>
     </Card>
 
-    <Card style={{backgroundColor:'rgba(255, 255, 255, 0)', width: '100%', height: '1200px', border: "none", marginLeft: '0px', marginRight:'0px' }}>
+    <Card style={{backgroundColor:'rgba(255, 255, 255, 0)', width: '100%', height: '1200px', border: "none", marginLeft: '25px', marginRight:'0px' }}>
       <Statistics />
       </Card>
   
