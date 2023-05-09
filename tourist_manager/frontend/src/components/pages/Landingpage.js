@@ -48,7 +48,7 @@ function Landingpage(props) {
             <span>CHOCOLATE HILLS TOURIST MANAGEMENT</span>
           </h1>
           
-          <p>Bohol's most famous tourist attraction is a sight to behold. The stories and facts behind it are what make these more interesting for travelers who visit them in Bohol.</p>
+          <p>Behold Bohol, It's More Fun The Philippines!</p>
 
           <div className='container'>
           <div className='mx-auto'>
