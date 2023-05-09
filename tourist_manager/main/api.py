@@ -128,9 +128,9 @@ class TouristViewSet(viewsets.ModelViewSet):
 
 class SimpleVehicleViewSet(viewsets.ModelViewSet):
     queryset = Vehicle.objects.all()
-    permission_classes = [
-        permissions.IsAuthenticated
-    ]
+    #permission_classes = [
+     #   permissions.IsAuthenticated
+    #]
     serializer_class = VehicleSerializer
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
     search_fields = ['=plate_number','date','time']

@@ -68,7 +68,7 @@ export const addVehicle = (formData) => (dispatch, getState) => {
 
 export const getStatistics = (dateFilter) => (dispatch, getState) => {
     axios
-      .get(`/api/simplevehicle/?search=${dateFilter}`, tokenConfig(getState))
+      .get(`/api/simplevehicle/?search=${dateFilter}`)
       .then((res) => {
         dispatch({
           type: GET_STATISTICS,

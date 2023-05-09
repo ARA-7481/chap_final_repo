@@ -29,12 +29,13 @@ export class Login extends Component {
     }
     const { username, password } = this.state;
     return (
-      <div className="d-flex justify-content-center">
-      <div className="col-md-6 offset-md-2" >
-        <div className="card card-body mt-5 ml-5 mr-1" >
-          <h2 className="text-center">Login</h2>
+      <div className="d-flex justify-content-center" style={{marginTop: "150px"}}>
+      <div className="col-md-5 " >
+      
+        <div className="card bg-transparent border-0 card-body mt-5 ml-5 mr-1" >
+          <h2 className="text-center" style={{color: 'rgba(255, 255, 255, 0.5)'}}>Login</h2>
           <form onSubmit={this.onSubmit}>
-            <div className="form-group">
+            <div className="form-group" style={{color: 'rgba(255, 255, 255, 0.5)'}}>
               <label>Username</label>
               <input
                 type="text"
@@ -45,7 +46,7 @@ export class Login extends Component {
               />
             </div>
 
-            <div className="form-group">
+            <div className="form-group" style={{color: 'rgba(255, 255, 255, 0.5)'}}>
               <label>Password</label>
               <input
                 type="password"
@@ -56,7 +57,7 @@ export class Login extends Component {
               />
             </div>
 
-            <div className="form-group">
+            <div className="form-group text-right">
               <button type="submit" className="btn btn-primary">
                 Login
               </button>

@@ -89,9 +89,7 @@ function Statistics (props){
 
   return (
     <>
-      
-
-      <Card style={{ width: '120%' , height: '850px', marginLeft:'20px', backgroundColor: '#333333'}}>
+      <Card style={{ width: '95%' , height: '100%', marginLeft:'27px', marginRight: '0px', backgroundColor:'rgba(51, 51, 51, 0.85)'}}>
         <Navbar bg="dark" variant="dark">
           <Nav className="me-auto" activeKey={activeKey} onSelect={setActiveKey}>
             <Nav.Link eventKey="form">Data Summary</Nav.Link>
@@ -178,10 +176,6 @@ function Statistics (props){
         {activeKey === 'register-staff' && <Register />}
       </Card.Body>
     </Card>
-
-
-
-     
     </>
   );
 }

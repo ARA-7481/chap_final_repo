@@ -45,10 +45,8 @@ function VehicleForm(props){
   };
 
   return (
-    <form onSubmit={onSubmit} className="p-3 rounded ml-auto mt-4" style={{background: 'white', border: '1px solid darkgray', width: '100%'}}>
+    <form onSubmit={onSubmit} className="p-3 rounded ml-auto mt-4" style={{ backgroundColor:'rgba(200, 211, 211, 0.5)' , border: '1px solid darkgray', width: '100%'}}>
       <div className = "container">
-
-
       <div className="form-group text-left"style={{marginBottom: '10px'}}>
         <label htmlFor="plate_number" className="mr-2">Plate Number:</label>
         <input

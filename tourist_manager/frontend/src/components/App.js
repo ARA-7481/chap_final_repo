@@ -21,21 +21,27 @@ import Statistics from './pages/Statistics';
 import Datacard from './pages/Datacard';
 import AdminDashboard from './pages/AdminDashboard';
 import { ViewportProvider } from './reusable/sizeAdjust';
+import Quickstats from './pages/quickstats';
+import QuickstatParent from './pages/QuickstatParent';
 
 function AppContent() {
   const location = useLocation();
   return ( 
     <Fragment>
       
-       {location.pathname !== '/' && 
+       {
        location.pathname !== '/login' && 
-       location.pathname !== '/register' && (
+       location.pathname !== '/dashboard' && 
+       location.pathname !== '/quickstats' && 
+       location.pathname !== '/admindashboard' && 
+       location.pathname !== '/register' &&
+       location.pathname !== '/' && (
         <Header />
       )}
-      <div className="container" style={{marginLeft:'0px', marginRight:'30px'}}>
+      
         <Routes>
           <Route exact path="/" element={<Landingpage />} />
-          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/login" element={<Landingpage />} />
           <Route exact path="/logout" element={<Logout />} />
           <Route exact path="/vehicledetail" element={<VehicleDetail />} />
           <Route exact path="/unauthorized" element={<Unauthorized />} />
@@ -45,8 +51,9 @@ function AppContent() {
           <Route exact path="/statistics" element={<Statistics />} />
           <Route exact path="/datacard" element={<Datacard />} />
           <Route exact path="/admindashboard" element={<AdminDashboard />} />
+          <Route exact path="/quickstats" element={<QuickstatParent />} />
         </Routes>
-      </div>
+      
     </Fragment>
   );
 }
