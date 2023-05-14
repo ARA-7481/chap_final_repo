@@ -45,7 +45,7 @@ function Landingpage(props) {
             {/*<span className='label'>AS OF TODAY:</span>*/}
             <br/>
             {/*<span>{totalPassengers} </span>*/}
-            <span>CHOCOLATE HILLS TOURIST MANAGEMENT</span>
+            <span>CHOCOLATE HILLS MANAGEMENT SYSTEM</span>
           </h1>
           
           <p>Behold Bohol, It's More Fun The Philippines!</p>
