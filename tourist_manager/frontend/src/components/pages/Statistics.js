@@ -18,6 +18,10 @@ import Register from '../accounts/Reg';
 import Rates from './Rates';
 import Stafflist from './Stafflist';
 import moment from 'moment/moment';
+import Alert from 'react-bootstrap/Alert';
+import { RESET_REG_MESSAGE } from '../../actions/types';
+import axios from "axios";
+import { useDispatch } from 'react-redux';
 
 function Statistics (props){
   const inputRef = React.useRef();
@@ -82,6 +86,11 @@ function Statistics (props){
   };
 
 
+  
+  const handleAlertClose = () => async dispatch => {
+    // dispatch an action to the reducer to reset the value of reg_message
+    dispatch({ type: RESET_REG_MESSAGE });
+  };
   useEffect(() => {
     props.getStatistics();
   }, []);
@@ -173,7 +182,45 @@ function Statistics (props){
         }
         {activeKey === 'vehicle-masterlist' && <Overview />}
         {activeKey === 'staff-log' && <Stafflist />}
-        {activeKey === 'register-staff' && <Register />}
+        {activeKey === 'register-staff' && <>
+        <Register />
+        
+        {props.reg_message !== 'Success' && props.reg_message != null && (
+          <Alert
+          variant="danger"
+         
+          style={{
+            width: '410px',
+            position: 'absolute',
+            top: '60%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: 9999,
+          }}
+        >
+          {props.reg_message}, {props.err_details}
+        </Alert>
+        )}
+
+        {props.reg_message === 'Success' && (
+          <Alert
+            variant="success"
+            
+            style={{
+              width: '410px',
+              position: 'absolute',
+              top: '60%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              zIndex: 9999,
+            }}
+          >
+            Registration Successful!
+          </Alert>
+        )}
+      {props.reg_message === '' }
+        </>
+        }
       </Card.Body>
     </Card>
     </>
@@ -184,11 +231,14 @@ Statistics.propTypes = {
   dateforstatistics: PropTypes.string,
   setThedate: PropTypes.func.isRequired,
   getStatistics: PropTypes.func.isRequired,
+  clear: PropTypes.func
 };
 
 const mapStateToProps = (state) => ({
   dateforstatistics: state.vehicles.dateforstatistics,
-  vehiclesforstatistics: state.vehicles.vehiclesforstatistics
+  vehiclesforstatistics: state.vehicles.vehiclesforstatistics,
+  reg_message: state.auth.reg_message,
+  err_details: state.auth.err_details
 
 });
 

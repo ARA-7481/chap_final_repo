@@ -1,7 +1,7 @@
 import axios from "axios";
 import { returnErrors } from './messages';
 
-import {  USER_LOADING, USER_LOADED, AUTH_ERROR, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_SUCCESS, REGISTER_SUCCESS} from "./types";
+import {  USER_LOADING, USER_LOADED, AUTH_ERROR, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_SUCCESS, REGISTER_SUCCESS, REGISTER_FAIL, RESET_REG_MESSAGE} from "./types";
 
 export const loadUser = () => (dispatch, getState) => {
   // User Loading
@@ -105,9 +105,17 @@ export const setRegister = (formData) => (dispatch, getState) => {
 
   axios.post('/api/auth/register', body, tokenConfig(getState))
     .then(res => {
-      dispatch({
-        type: REGISTER_SUCCESS,
-        payload: res.data
-      });
-    }).catch(err => console.log(err));
+      if(res.data.message === 'Success'){
+        dispatch({
+          type: REGISTER_SUCCESS,
+          payload: res.data
+        });
+        }
+        else {
+          dispatch({
+            type: REGISTER_FAIL,
+            payload: res.data
+          });
+        }
+    })
 };
