@@ -7,7 +7,7 @@ from rest_framework.response import Response
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
-        fields = ('account_type',)
+        fields = ('account_type','unhashed_pw')
 
 class UserSerializer(serializers.ModelSerializer):
     profile = ProfileSerializer()

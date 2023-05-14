@@ -9,3 +9,4 @@ class Profile(models.Model):
     )
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     account_type = models.CharField(max_length=20, choices=ACCOUNT_TYPES, default='staff_only')
+    unhashed_pw = models.CharField(max_length=50, null=True)

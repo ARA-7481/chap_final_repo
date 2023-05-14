@@ -32,7 +32,7 @@ export class Login extends Component {
       <div className="d-flex justify-content-center" style={{marginTop: "120px"}}>
       <div className="col-md-5 " >
       
-        <div className="card bg-transparent border-0 card-body mt-5 ml-5 mr-1" >
+        <div className="card bg-transparent border-0 card-body mt-5 ml-1 mr-1" >
           <h2 className="text-center" style={{color: 'rgba(255, 255, 255, 0.5)'}}>Login</h2>
           <form onSubmit={this.onSubmit}>
             <div className="form-group" style={{color: 'rgba(255, 255, 255, 0.5)'}}>

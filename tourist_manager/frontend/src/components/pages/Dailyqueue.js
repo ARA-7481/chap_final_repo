@@ -60,7 +60,7 @@ function Dailyqueue(props) {
       <Button onClick={handleSearch}>Find</Button>
       </div>
       <div className="d-flex justify-content-center">
-        <div className="table-container rounded" style={{maxHeight: '85vh', overflowY: 'auto', width: '100%', marginTop: '10px', marginRight: '0px', borderWidth: '3px'}}>
+        <div className="table-container rounded" style={{maxHeight: '90vh', overflowY: 'auto', width: '100%', marginTop: '10px', marginRight: '0px', borderWidth: '3px'}}>
           <Table striped bordered hover variant="dark" >
             <thead>
               <tr>

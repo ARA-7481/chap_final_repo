@@ -28,7 +28,7 @@ export const loadUser = () => (dispatch, getState) => {
 export const login = (username, password) => async dispatch => {
   dispatch({ type: USER_LOADING });
 
-  try {
+  
     const config = {
       headers: {
         'Content-Type': 'application/json'
@@ -36,21 +36,22 @@ export const login = (username, password) => async dispatch => {
     };
 
     const body = JSON.stringify({ username, password });
-
     const res = await axios.post('/api/auth/login', body, config);
-
+    console.log(res.data.message)
+    if(res.data.message === 'Success'){
     dispatch({
       type: LOGIN_SUCCESS,
       payload: res.data
     });
-
+    }
+    else {
+      dispatch({
+        type: LOGIN_FAIL,
+        payload: res.data
+      });
+    }
     dispatch(loadUser());
-  } catch (err) {
-    dispatch({
-      type: LOGIN_FAIL,
-      payload: err.response.data
-    });
-  }
+ 
 };
 
 export const logout = () => (dispatch, getState) => {
@@ -94,7 +95,8 @@ export const setRegister = (formData) => (dispatch, getState) => {
     last_name: formData.last_name,
     password: formData.password,
     profile: {
-      account_type: formData.account_type
+      account_type: formData.account_type,
+      unhashed_pw: formData.password
     }
   };
 

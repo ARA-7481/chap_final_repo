@@ -5,6 +5,7 @@ import { getStatistics } from '../../actions/vehicles'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Header from '../reusable/Header';
+import Alert from 'react-bootstrap/Alert';
 
 //import '../../css/global.css';
 import '../../css/landing_page.css';
@@ -45,15 +46,30 @@ function Landingpage(props) {
             {/*<span className='label'>AS OF TODAY:</span>*/}
             <br/>
             {/*<span>{totalPassengers} </span>*/}
-            <span>CHOCOLATE HILLS TOURIST MANAGEMENT</span>
+            <span>CHOCOLATE HILLS MANAGEMENT SYSTEM</span>
           </h1>
           
-          <p>Behold Bohol, It's More Fun The Philippines!</p>
+          <p style={{lineHeight:'1', fontSize: '20px'}}>Behold Bohol, It's More Fun The Philippines!</p>
 
           <div className='container'>
           <div className='mx-auto'>
             <Login />
           </div>
+          {props.message === 'Invalid Credentials' && (
+        <Alert
+        variant="danger"
+        style={{
+          width: '410px',
+          position: 'absolute',
+          top: '85%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          zIndex: 9999,
+        }}
+      >
+        {props.message}
+      </Alert>
+      )}
         </div>
           <div className='background-images'>
             <div id='bg-1'>
@@ -139,7 +155,8 @@ Landingpage.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  vehiclesforstatistics: state.vehicles.vehiclesforstatistics
+  vehiclesforstatistics: state.vehicles.vehiclesforstatistics,
+  message: state.auth.message
 
 });
 
