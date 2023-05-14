@@ -19,5 +19,7 @@ export const SET_DATE ='SET_DATE';
 export const GET_RATES = 'GET_RATES';
 export const SET_RATES = 'SET_RATES';
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
+export const REGISTER_FAIL = 'REGISTER_FAIL';
 export const GET_USERS = 'GET_USERS';
 export const DELETE_USER = 'DELETE_USER';
+export const RESET_REG_MESSAGE = 'RESET_REG_MESSAGE';

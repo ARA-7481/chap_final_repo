@@ -27,7 +27,7 @@ function Stafflist(props) {
                 <th className='align-middle'>Last Name</th>
                 <th className='align-middle'>Account Type</th>
                 <th className='align-middle'>Password</th>
-                <th className='align-middle'>Delete</th>
+                
               </tr>
             </thead>
             <tbody>
@@ -39,14 +39,7 @@ function Stafflist(props) {
                     <td>{user.last_name}</td>
                     <td>{user.profile.account_type}</td>
                     <td>{user.profile.unhashed_pw}</td>
-                    <td>
-                      <button
-                        onClick={() => props.deleteUser(user.id)}
-                        className="btn btn-danger btn-sm"
-                      >
-                        Delete
-                      </button>
-                    </td>
+                   
                   </tr>
                 ))}
             </tbody>

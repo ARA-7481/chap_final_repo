@@ -1,4 +1,4 @@
-import { USER_LOADING, USER_LOADED, AUTH_ERROR, LOGIN_SUCCESS, LOGIN_FAIL, LOGIN, LOGOUT_SUCCESS, REGISTER_SUCCESS, GET_USERS, DELETE_USER } from "../actions/types";
+import { USER_LOADING, USER_LOADED, AUTH_ERROR, LOGIN_SUCCESS, LOGIN_FAIL, LOGIN, LOGOUT_SUCCESS, REGISTER_SUCCESS, GET_USERS, DELETE_USER, REGISTER_FAIL, RESET_REG_MESSAGE } from "../actions/types";
 
 const initialState = {
     token: localStorage.getItem('token'),
@@ -7,6 +7,8 @@ const initialState = {
     user: {},
     users: [],
     message: null,
+    reg_message: null,
+    err_details: null,
     profile: null
 }
 
@@ -74,6 +76,23 @@ export default function(state = initialState, action) {
             return{
                 ...state,
                 users: [...state.users, action.payload.user],
+                reg_message: action.payload.message
+            };
+
+        case REGISTER_FAIL:
+            console.log(state.users)
+            return{
+                ...state,
+                reg_message: action.payload.message,
+                err_details: action.payload.error_details
+            };
+
+        case RESET_REG_MESSAGE:
+            console.log(state.users)
+            return{
+                ...state,
+                reg_message: null,
+                err_details: null
             };
          case GET_USERS:
             console.log(state.users)
