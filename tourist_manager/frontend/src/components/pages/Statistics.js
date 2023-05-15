@@ -185,31 +185,48 @@ function Statistics (props){
         {activeKey === 'register-staff' && <>
         <Register />
         
-        {props.reg_message !== 'Success' && props.reg_message != null && (
+        {props.reg_message !== 'Success' && props.reg_message != null && props.needs_unique_input[0] !== 'username' && (
           <Alert
           variant="danger"
          
           style={{
-            width: '410px',
+            width: '390px',
             position: 'absolute',
-            top: '60%',
+            top: '65%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
             zIndex: 9999,
           }}
         >
-          {props.reg_message}, {props.err_details}
+          {props.reg_message}! {props.err_details}, Empty Fields: {props.empty_fields.join(" ")}
         </Alert>
         )}
+
+        {props.needs_unique_input[0] === 'username' && (
+                  <Alert
+                  variant="danger"
+                
+                  style={{
+                    width: '390px',
+                    position: 'absolute',
+                    top: '65%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    zIndex: 9999,
+                  }}
+                >
+                  {props.reg_message}! Username Already Used
+                </Alert>
+                )}
 
         {props.reg_message === 'Success' && (
           <Alert
             variant="success"
             
             style={{
-              width: '410px',
+              width: '390px',
               position: 'absolute',
-              top: '60%',
+              top: '65%',
               left: '50%',
               transform: 'translate(-50%, -50%)',
               zIndex: 9999,
@@ -238,7 +255,9 @@ const mapStateToProps = (state) => ({
   dateforstatistics: state.vehicles.dateforstatistics,
   vehiclesforstatistics: state.vehicles.vehiclesforstatistics,
   reg_message: state.auth.reg_message,
-  err_details: state.auth.err_details
+  err_details: state.auth.err_details,
+  empty_fields: state.auth.empty_fields,
+  needs_unique_input: state.auth.needs_unique_input
 
 });
 

@@ -9,6 +9,8 @@ const initialState = {
     message: null,
     reg_message: null,
     err_details: null,
+    empty_fields: [],
+    needs_unique_input: [],
     profile: null
 }
 
@@ -84,7 +86,9 @@ export default function(state = initialState, action) {
             return{
                 ...state,
                 reg_message: action.payload.message,
-                err_details: action.payload.error_details
+                err_details: action.payload.error_details,
+                empty_fields: action.payload.empty_fields,
+                needs_unique_input: action.payload.needs_unique_input
             };
 
         case RESET_REG_MESSAGE:
@@ -92,7 +96,9 @@ export default function(state = initialState, action) {
             return{
                 ...state,
                 reg_message: null,
-                err_details: null
+                err_details: null,
+                empty_fields: [],
+                needs_unique_input: []
             };
          case GET_USERS:
             console.log(state.users)

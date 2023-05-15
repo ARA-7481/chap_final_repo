@@ -8,9 +8,11 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import BG from '../../assets/images/hero_img_1xx.png'
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import Alert from 'react-bootstrap/Alert';
 
-
-export default function Dashboard() {
+function Dashboard(props) {
   return (
     <>
     {/*<section id='hero' style={{backgroundImage:`url(${BG})`, backgroundSize: 'cover', width:'100%', marginRight:'0px', marginLeft:'0px'}}>
@@ -53,6 +55,39 @@ export default function Dashboard() {
 
     <Card style={{backgroundColor:'rgba(255, 255, 255, 0)', width: '20%', height: '1100px', border: "none", marginTop: '63px', marginLeft: '70px', marginRight: '10px'}}>
         <Vehicleform  />
+        {props.submit_vehicle === 'Success' && (
+          <Alert
+          variant="success"
+         
+          style={{
+            width: '390px',
+            position: 'absolute',
+            top: '85%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: 9999,
+          }}
+        >
+          Added Vehicle Successfully
+        </Alert>
+        )}
+
+        {props.submit_vehicle === 'Failed' && (
+          <Alert
+          variant="danger"
+         
+          style={{
+            width: '390px',
+            position: 'absolute',
+            top: '85%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: 9999,
+          }}
+        >
+          Please Fill-Up The Form Completely
+        </Alert>
+        )}
         </Card>
      
   </div>
@@ -61,3 +96,9 @@ export default function Dashboard() {
   )
 
 }
+
+const mapStateToProps = (state) => ({
+  submit_vehicle: state.vehicles.submit_vehicle,
+});
+
+export default connect(mapStateToProps)(Dashboard);

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_STATISTICS, VEHICLE_ADDED, VEHICLEADD_FAIL, GET_VEHICLES, GET_VEHICLESTODAY, DELETE_VEHICLE, GETA_VEHICLE, UNGETA_VEHICLE, UNDELETE, SET_DATE, GET_RATES, SET_RATES, GET_USERS, DELETE_USER } from "./types";
+import { GET_STATISTICS, VEHICLE_ADDED, VEHICLEADD_FAIL, GET_VEHICLES, GET_VEHICLESTODAY, DELETE_VEHICLE, GETA_VEHICLE, UNGETA_VEHICLE, UNDELETE, SET_DATE, GET_RATES, SET_RATES, GET_USERS, DELETE_USER, RESET_SUBMIT_VEHICLE } from "./types";
 import { tokenConfig } from './auth';
 import { returnErrors } from './messages';
 
@@ -48,22 +48,54 @@ export const getaVehicle = (id) => (dispatch, getState) => {
 
 //Post
 
-export const addVehicle = (formData) => (dispatch, getState) => {
-    const body = JSON.stringify({ 
+export const addVehicle = (formData) => async (dispatch, getState) => {
+    try {
+      const body = JSON.stringify({
         ...formData,
         passenger_count: Number(formData.passenger_count),
         passenger_count_domestic: Number(formData.passenger_count_domestic),
         passenger_count_local: Number(formData.passenger_count_local),
-        passenger_count_international: Number(formData.passenger_count_international) 
-    });
-    console.log(body);
-    axios.post('/api/vehicle/', body, tokenConfig(getState))
-    .then(res =>{
+        passenger_count_international: Number(
+          formData.passenger_count_international
+        ),
+      });
+      console.log(body);
+      const res = await axios.post("/api/vehicle/", body, tokenConfig(getState));
+      dispatch({
+        type: VEHICLE_ADDED,
+        payload: res.data,
+      });
+  
+      setTimeout(() => {
+        dispatch({ type: RESET_SUBMIT_VEHICLE });
+      }, 2000);
+    } catch (err) {
+      console.log(err);
+      // Handle the error here
+      // For example, check if there is an error message
+      if (err.response && err.response.data && err.response.data.message) {
+        // If there is an error message, dispatch an action to update the error state
         dispatch({
-            type: VEHICLE_ADDED,
-            payload: res.data
+          type: VEHICLEADD_FAIL,
+          payload: err.response.data.message,
         });
-    }).catch(err => console.log(err));
+      } else {
+        // If there is no error message, handle it here
+        // For example, dispatch a generic error message
+        dispatch({
+          type: VEHICLEADD_FAIL,
+          payload: "An error occurred while adding the vehicle",
+        });
+      }
+    }
+  };
+
+  export const failAdd = () => (dispatch, getState) => {
+    dispatch({
+        type: VEHICLEADD_FAIL,
+        payload: null
+    })
+
 };
 
 export const getStatistics = (dateFilter) => (dispatch, getState) => {

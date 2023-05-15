@@ -9,11 +9,11 @@ import { useNavigate } from 'react-router-dom';
 function Register(props){
   const navigate = useNavigate();
     const initialState = {
-        username: '',
-        first_name: '',
-        last_name: '',
-        password: '',
-        account_type: ''
+        username: "",
+        first_name: "",
+        last_name: "",
+        password: "",
+        account_type: ""
       }
   const [formData, setFormData] = useState(initialState);
   const { username, first_name, last_name, password, account_type } = formData;
