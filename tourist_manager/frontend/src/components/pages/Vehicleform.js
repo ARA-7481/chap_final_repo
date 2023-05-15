@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { addVehicle, getVehiclestoday, getRates, setRates } from '../../actions/vehicles';
+import { addVehicle, getVehiclestoday, getRates, setRates, failAdd } from '../../actions/vehicles';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PropTypes from 'prop-types';
 import withAuth from '../common/withAuth';
@@ -19,6 +19,17 @@ function VehicleForm(props){
     passenger_count_international: '',
     total_bill: '',
   };
+
+  const ReinitialState = {
+    plate_number: '',
+    passenger_count: '',
+    description: 'None',
+    passenger_count_domestic: '',
+    passenger_count_local: '',
+    passenger_count_international: '',
+    total_bill: '',
+  };
+
   const [formData, setFormData] = useState(initialState);
 
   const { plate_number, vehicle_classification, vehicle_type, passenger_count, description, passenger_count_domestic, passenger_count_local, passenger_count_international, total_bill } = formData;
@@ -38,11 +49,30 @@ function VehicleForm(props){
 
   const onSubmit = (e) => {
     e.preventDefault();
-    // handle form submission here
-    // for example, dispatch an action to add the vehicle to the Redux store
-    props.addVehicle(formData);
-    setFormData(initialState);
+    // Check if any of the specified values in formData are empty
+    if (
+      !plate_number ||
+      !vehicle_classification ||
+      !vehicle_type ||
+      !description ||
+      (
+        !passenger_count_domestic && 
+        !passenger_count_international && 
+        !passenger_count_local
+      )
+    ) {
+      setFormData(initialState);
+      props.failAdd();
+    } else {
+      // If none of the values are empty, execute props.addVehicle
+      props.addVehicle(formData);
+      setFormData(initialState);
+      
+    }
   };
+
+
+ 
 
   return (
     <form onSubmit={onSubmit} className="p-3 rounded ml-auto mt-4" style={{ backgroundColor:'rgba(200, 211, 211, 0.5)' , border: '1px solid darkgray', width: '100%'}}>
@@ -65,6 +95,7 @@ function VehicleForm(props){
           className="form-control mb-2 d-block mx-auto"
           onChange={e => onChange({ target: { name: 'vehicle_classification', value: e.target.value } })}
           style={{width: '100%', margin: '5px'}}
+          value={vehicle_classification}
         >
           <option value="">Select a Classification</option>
           <option value="private">Private</option>
@@ -78,6 +109,7 @@ function VehicleForm(props){
           className="form-control mb-2 d-block mx-auto"
           onChange={e => onChange({ target: { name: 'vehicle_type', value: e.target.value } })}
           style={{width: '100%', margin: '5px'}}
+          value={vehicle_type}
         >
           <option value="">Select a Type</option>
           <option value="bus">Bus</option>
@@ -175,7 +207,8 @@ VehicleForm.propTypes = {
   domestic_rate: PropTypes.number,
   international_rate: PropTypes.number,
   getVehiclestoday: PropTypes.func,
-  addVehicle: PropTypes.func
+  addVehicle: PropTypes.func,
+  failAdd: PropTypes.func
 };
 
 const mapStateToProps = (state) => ({
@@ -184,4 +217,4 @@ const mapStateToProps = (state) => ({
   international_rate: state.vehicles.international_rate,
 });
 
-export default withAuth(connect(mapStateToProps, {getVehiclestoday, addVehicle, getRates, setRates})(VehicleForm));
+export default withAuth(connect(mapStateToProps, {getVehiclestoday, addVehicle, getRates, setRates, failAdd})(VehicleForm));

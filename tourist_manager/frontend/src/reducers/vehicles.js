@@ -1,4 +1,4 @@
-import {VEHICLE_ADDED, VEHICLEADD_FAIL, GET_VEHICLES, GET_VEHICLESTODAY, DELETE_VEHICLE, GETA_VEHICLE, UNGETA_VEHICLE, UNDELETE, GET_STATISTICS, SET_DATE, GET_RATES, SET_RATES} from "../actions/types.js"
+import {RESET_SUBMIT_VEHICLE, VEHICLE_ADDED, VEHICLEADD_FAIL, GET_VEHICLES, GET_VEHICLESTODAY, DELETE_VEHICLE, GETA_VEHICLE, UNGETA_VEHICLE, UNDELETE, GET_STATISTICS, SET_DATE, GET_RATES, SET_RATES} from "../actions/types.js"
 
 const initialState = {
     vehicles: [],
@@ -11,6 +11,7 @@ const initialState = {
     international_rate: 0,
     isClicked: false,
     isDeleted: false,
+    submit_vehicle: null
 
 }
 
@@ -41,10 +42,19 @@ export default function(state = initialState, action){
                 ...state,
                 vehicle: action.payload,
                 vehicles: [...state.vehicles, action.payload],
-                filteredvehicles: [...state.filteredvehicles, action.payload]
+                filteredvehicles: [...state.filteredvehicles, action.payload],
+                submit_vehicle: "Success"
             };
         case VEHICLEADD_FAIL:
-            
+            return{
+                ...state,
+                submit_vehicle: "Failed"
+            }
+        case RESET_SUBMIT_VEHICLE:
+            return {
+                ...state,
+                submit_vehicle: null,
+            }
         case UNGETA_VEHICLE:
             return{
                 ...state,

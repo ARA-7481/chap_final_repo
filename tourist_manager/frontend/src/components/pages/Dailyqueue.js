@@ -61,7 +61,7 @@ function Dailyqueue(props) {
       </div>
       <div className="d-flex justify-content-center">
         <div className="table-container rounded" style={{maxHeight: '90vh', overflowY: 'auto', width: '100%', marginTop: '10px', marginRight: '0px', borderWidth: '3px'}}>
-          <Table striped bordered hover variant="dark" >
+          <Table striped bordered hover variant="dark" style={{ opacity: 0.90 }}>
             <thead>
               <tr>
                 <th className='align-middle'>Transaction Code</th>

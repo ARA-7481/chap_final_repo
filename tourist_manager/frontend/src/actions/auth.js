@@ -88,6 +88,9 @@ export const tokenConfig = (getState) => {
 
 
 export const setRegister = (formData) => (dispatch, getState) => {
+  dispatch({
+    type: RESET_REG_MESSAGE,
+  });
   // Create a new object with the desired structure
   const data = {
     username: formData.username,
@@ -96,15 +99,16 @@ export const setRegister = (formData) => (dispatch, getState) => {
     password: formData.password,
     profile: {
       account_type: formData.account_type,
-      unhashed_pw: formData.password
+      unhashed_pw: formData.password ? formData.password : "123"
     }
   };
 
   // Convert the new object to JSON
   const body = JSON.stringify(data);
-
+  console.log(body)
   axios.post('/api/auth/register', body, tokenConfig(getState))
     .then(res => {
+      console.log(res.data)
       if(res.data.message === 'Success'){
         dispatch({
           type: REGISTER_SUCCESS,
