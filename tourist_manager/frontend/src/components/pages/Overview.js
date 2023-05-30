@@ -1,12 +1,13 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getVehicles, deleteVehicles, getaVehicle } from '../../actions/vehicles';
+import { getVehicles, deleteVehicles, getaVehicle, searchFail } from '../../actions/vehicles';
 import Table from 'react-bootstrap/Table';
 import { useNavigate } from 'react-router-dom';
 import withAuth from '../common/withAuth';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Alert from 'react-bootstrap/Alert';
 
 import '../../css/table.css'
 
@@ -26,6 +27,7 @@ function Overview(props) {
       props.getaVehicle(matchingVehicle.vehicle_id);
       navigate('/vehicledetail');
     } else {
+      props.searchFail();
       setHighlightedVehicleId(null);
     }
     
@@ -51,6 +53,25 @@ function Overview(props) {
         style={{width: '310px', marginRight:'10px'}}
       />
       <Button onClick={handleSearch}>Find</Button>
+
+      {props.search_message === 'Failed' && (
+          <Alert
+          variant="danger"
+         
+          style={{
+            width: '345px',
+            position: 'absolute',
+            top: '20%',
+            left: '30%',
+            transform: 'translate(-15%, -50%)',
+            zIndex: 9999,
+          }}
+        >
+          Transaction Not Found!
+        </Alert>
+      )};
+
+
       </div>
       <div className="d-flex justify-content-center">
         <div className="table-container rounded" style={{maxHeight: '90vh', overflowY: 'auto', width: '100%', marginTop: '0px', marginRight: '0px', marginLeft: '0px'}}>
@@ -118,12 +139,15 @@ Overview.propTypes = {
   deleteVehicles: PropTypes.func.isRequired,
   getaVehicle: PropTypes.func.isRequired,
   isAutheticated: PropTypes.bool,
+  search_message: PropTypes.string,
+  searchFail: PropTypes.func,
 };
 
 const mapStateToProps = (state) => ({
   vehicles: state.vehicles.vehicles,
   vehicle: state.vehicles.vehicle,
   isAutheticated: state.auth.isAutheticated,
+  search_message: state.vehicles.search_message
 });
 
-export default withAuth(connect(mapStateToProps, { getVehicles, deleteVehicles, getaVehicle })(Overview));
+export default withAuth(connect(mapStateToProps, { getVehicles, deleteVehicles, getaVehicle, searchFail })(Overview));

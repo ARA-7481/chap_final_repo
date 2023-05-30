@@ -60,7 +60,7 @@ function Dashboard(props) {
           variant="success"
          
           style={{
-            width: '390px',
+            width: '345px',
             position: 'absolute',
             top: '85%',
             left: '50%',
@@ -77,7 +77,7 @@ function Dashboard(props) {
           variant="danger"
          
           style={{
-            width: '390px',
+            width: '345px',
             position: 'absolute',
             top: '85%',
             left: '50%',

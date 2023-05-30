@@ -1,4 +1,4 @@
-import {RESET_SUBMIT_VEHICLE, VEHICLE_ADDED, VEHICLEADD_FAIL, GET_VEHICLES, GET_VEHICLESTODAY, DELETE_VEHICLE, GETA_VEHICLE, UNGETA_VEHICLE, UNDELETE, GET_STATISTICS, SET_DATE, GET_RATES, SET_RATES} from "../actions/types.js"
+import {SEARCH_NOTFOUND, RESET_SUBMIT_VEHICLE, VEHICLE_ADDED, VEHICLEADD_FAIL, GET_VEHICLES, GET_VEHICLESTODAY, DELETE_VEHICLE, GETA_VEHICLE, UNGETA_VEHICLE, UNDELETE, GET_STATISTICS, SET_DATE, GET_RATES, SET_RATES} from "../actions/types.js"
 
 const initialState = {
     vehicles: [],
@@ -11,7 +11,8 @@ const initialState = {
     international_rate: 0,
     isClicked: false,
     isDeleted: false,
-    submit_vehicle: null
+    submit_vehicle: null,
+    search_message: null
 
 }
 
@@ -50,10 +51,16 @@ export default function(state = initialState, action){
                 ...state,
                 submit_vehicle: "Failed"
             }
+        case SEARCH_NOTFOUND:
+            return{
+                ...state,
+                search_message: "Failed"
+            }    
         case RESET_SUBMIT_VEHICLE:
             return {
                 ...state,
                 submit_vehicle: null,
+                search_message: null
             }
         case UNGETA_VEHICLE:
             return{

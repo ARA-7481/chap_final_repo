@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_STATISTICS, VEHICLE_ADDED, VEHICLEADD_FAIL, GET_VEHICLES, GET_VEHICLESTODAY, DELETE_VEHICLE, GETA_VEHICLE, UNGETA_VEHICLE, UNDELETE, SET_DATE, GET_RATES, SET_RATES, GET_USERS, DELETE_USER, RESET_SUBMIT_VEHICLE } from "./types";
+import {SEARCH_NOTFOUND, GET_STATISTICS, VEHICLE_ADDED, VEHICLEADD_FAIL, GET_VEHICLES, GET_VEHICLESTODAY, DELETE_VEHICLE, GETA_VEHICLE, UNGETA_VEHICLE, UNDELETE, SET_DATE, GET_RATES, SET_RATES, GET_USERS, DELETE_USER, RESET_SUBMIT_VEHICLE } from "./types";
 import { tokenConfig } from './auth';
 import { returnErrors } from './messages';
 
@@ -95,6 +95,20 @@ export const addVehicle = (formData) => async (dispatch, getState) => {
         type: VEHICLEADD_FAIL,
         payload: null
     })
+    setTimeout(() => {
+      dispatch({ type: RESET_SUBMIT_VEHICLE });
+    }, 2000);
+
+};
+
+export const searchFail = () => (dispatch, getState) => {
+  dispatch({
+      type: SEARCH_NOTFOUND,
+      payload: null
+  })
+  setTimeout(() => {
+    dispatch({ type: RESET_SUBMIT_VEHICLE });
+  }, 2000);
 
 };
 
