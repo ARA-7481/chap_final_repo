@@ -11,8 +11,9 @@ import BG from '../../assets/images/hero_img_1xx.png'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Alert from 'react-bootstrap/Alert';
-
+import { useNavigate } from 'react-router-dom';
 function Dashboard(props) {
+
   return (
     <>
     {/*<section id='hero' style={{backgroundImage:`url(${BG})`, backgroundSize: 'cover', width:'100%', marginRight:'0px', marginLeft:'0px'}}>
@@ -51,6 +52,7 @@ function Dashboard(props) {
     <Card style={{backgroundColor:'rgba(255, 255, 255, 0)', width: '75%', height: '100%', border: "none", marginLeft: '25px' }}>
   <h4 className='center-text'>DAILY VEHICLE LIST</h4>
   <Dailyqueue />
+
 </Card>
 
     <Card style={{backgroundColor:'rgba(255, 255, 255, 0)', width: '20%', height: '1100px', border: "none", marginTop: '63px', marginLeft: '70px', marginRight: '10px'}}>

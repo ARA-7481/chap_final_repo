@@ -39,7 +39,10 @@ function VehicleForm(props){
     setFormData((prevState) => ({
       ...prevState,
       passenger_count: Number(passenger_count_domestic) + Number(passenger_count_local) + Number(passenger_count_international),
-      total_bill: (Number(passenger_count_domestic)*Number(props.domestic_rate)) + (Number(passenger_count_local)*Number(props.local_rate)) + (Number(passenger_count_international)*Number(props.international_rate))
+      total_bill: (Number(passenger_count_domestic)*Number(props.domestic_rate)) + (Number(passenger_count_local)*Number(props.local_rate)) + (Number(passenger_count_international)*Number(props.international_rate)),
+      domestic_bill : Number(passenger_count_domestic)*Number(props.domestic_rate),
+      local_bill : Number(passenger_count_local)*Number(props.local_rate),
+      international_bill : Number(passenger_count_international)*Number(props.international_rate)
     }));
   }, [passenger_count_domestic, passenger_count_local, passenger_count_international, props.domestic_rate, props.local_rate, props.international_rate]);
   

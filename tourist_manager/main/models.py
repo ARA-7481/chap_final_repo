@@ -63,6 +63,9 @@ class Vehicle(models.Model):
     passenger_count_domestic = models.PositiveIntegerField(null=True)
     passenger_count_local = models.PositiveIntegerField(null=True)
     passenger_count_international = models.PositiveIntegerField(null=True)
+    domestic_bill = models.PositiveIntegerField(null=True)
+    local_bill = models.PositiveIntegerField(null=True)
+    international_bill = models.PositiveIntegerField(null=True)
     total_bill = models.FloatField(null=True)
     added_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, to_field='username')
 

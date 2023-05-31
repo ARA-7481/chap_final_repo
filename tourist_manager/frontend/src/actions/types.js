@@ -15,6 +15,7 @@ export const UNDELETE = 'UNDELETE';
 export const VEHICLE_ADDED ='VEHICLE_ADDED';
 export const VEHICLEADD_FAIL ='VEHICLEADD_FAIL';
 export const GET_STATISTICS ='GET_STATISTICS';
+export const GET_STATISTICS_REPORT ='GET_STATISTICS_REPORT';
 export const SET_DATE ='SET_DATE';
 export const GET_RATES = 'GET_RATES';
 export const SET_RATES = 'SET_RATES';

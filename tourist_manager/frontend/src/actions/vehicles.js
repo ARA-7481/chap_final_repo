@@ -1,5 +1,5 @@
 import axios from "axios";
-import {SEARCH_NOTFOUND, GET_STATISTICS, VEHICLE_ADDED, VEHICLEADD_FAIL, GET_VEHICLES, GET_VEHICLESTODAY, DELETE_VEHICLE, GETA_VEHICLE, UNGETA_VEHICLE, UNDELETE, SET_DATE, GET_RATES, SET_RATES, GET_USERS, DELETE_USER, RESET_SUBMIT_VEHICLE } from "./types";
+import {GET_STATISTICS_REPORT, SEARCH_NOTFOUND, GET_STATISTICS, VEHICLE_ADDED, VEHICLEADD_FAIL, GET_VEHICLES, GET_VEHICLESTODAY, DELETE_VEHICLE, GETA_VEHICLE, UNGETA_VEHICLE, UNDELETE, SET_DATE, GET_RATES, SET_RATES, GET_USERS, DELETE_USER, RESET_SUBMIT_VEHICLE } from "./types";
 import { tokenConfig } from './auth';
 import { returnErrors } from './messages';
 
@@ -55,9 +55,7 @@ export const addVehicle = (formData) => async (dispatch, getState) => {
         passenger_count: Number(formData.passenger_count),
         passenger_count_domestic: Number(formData.passenger_count_domestic),
         passenger_count_local: Number(formData.passenger_count_local),
-        passenger_count_international: Number(
-          formData.passenger_count_international
-        ),
+        passenger_count_international: Number(formData.passenger_count_international),
       });
       console.log(body);
       const res = await axios.post("/api/vehicle/", body, tokenConfig(getState));
@@ -123,7 +121,41 @@ export const getStatistics = (dateFilter) => (dispatch, getState) => {
         console.log(res.data)
       }).catch((err) => console.log(err));
     };
-    
+
+
+    export const getStatisticsReport = (dateFilter) => (dispatch, getState) => {
+      let monthlyData = new Array(12);
+      for (let month = 1; month <= 12; month++) {
+        let monthString = month < 10 ? `0${month}` : `${month}`;
+        axios
+          .get(`/api/simplevehicle/?search=${dateFilter}-${monthString}`)
+          .then((res) => {
+            let localTotal = 0;
+            let domesticTotal = 0;
+            let internationalTotal = 0;
+            res.data.forEach((item) => {
+              localTotal += item.local_bill;
+              domesticTotal += item.domestic_bill;
+              internationalTotal += item.international_bill;
+            });
+            monthlyData[month - 1] = {
+              localTourists: localTotal,
+              domesticTourists: domesticTotal,
+              internationalTourists: internationalTotal,
+            };
+            if (monthlyData.filter((x) => x).length === 12) {
+              dispatch({
+                type: GET_STATISTICS_REPORT,
+                payload: monthlyData,
+              });
+              console.log(monthlyData);
+            }
+          })
+          .catch((err) => console.log(err));
+      }
+    };
+
+
 export const setThedate = (dateFilter) => (dispatch, getState) => {
         dispatch({
             type: SET_DATE,

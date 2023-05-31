@@ -1,4 +1,4 @@
-import {SEARCH_NOTFOUND, RESET_SUBMIT_VEHICLE, VEHICLE_ADDED, VEHICLEADD_FAIL, GET_VEHICLES, GET_VEHICLESTODAY, DELETE_VEHICLE, GETA_VEHICLE, UNGETA_VEHICLE, UNDELETE, GET_STATISTICS, SET_DATE, GET_RATES, SET_RATES} from "../actions/types.js"
+import {GET_STATISTICS_REPORT, SEARCH_NOTFOUND, RESET_SUBMIT_VEHICLE, VEHICLE_ADDED, VEHICLEADD_FAIL, GET_VEHICLES, GET_VEHICLESTODAY, DELETE_VEHICLE, GETA_VEHICLE, UNGETA_VEHICLE, UNDELETE, GET_STATISTICS, SET_DATE, GET_RATES, SET_RATES} from "../actions/types.js"
 
 const initialState = {
     vehicles: [],
@@ -6,6 +6,7 @@ const initialState = {
     filteredvehicles: [],
     dateforstatistics: null,
     vehiclesforstatistics: [],
+    vehiclesforstatisticsreport: [],
     local_rate: 0,
     domestic_rate: 0,    
     international_rate: 0,
@@ -83,6 +84,11 @@ export default function(state = initialState, action){
             return{
                 ...state,
                 vehiclesforstatistics: action.payload
+            };
+        case GET_STATISTICS_REPORT:
+            return{
+                ...state,
+                vehiclesforstatisticsreport: action.payload
             };
         case SET_DATE:
             return{

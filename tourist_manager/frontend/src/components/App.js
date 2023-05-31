@@ -23,6 +23,8 @@ import AdminDashboard from './pages/AdminDashboard';
 import { ViewportProvider } from './reusable/sizeAdjust';
 import Quickstats from './pages/quickstats';
 import QuickstatParent from './pages/QuickstatParent';
+import Reporting from './pages/Reporting';
+import DailyquequePrintPreview from './pages/DailyquequePrintPreview';
 
 function AppContent() {
   const location = useLocation();
@@ -35,6 +37,8 @@ function AppContent() {
        location.pathname !== '/quickstats' && 
        location.pathname !== '/admindashboard' && 
        location.pathname !== '/register' &&
+       location.pathname !== '/report' &&
+       location.pathname !== '/dailyprint' &&
        location.pathname !== '/' && (
         <Header />
       )}
@@ -52,6 +56,8 @@ function AppContent() {
           <Route exact path="/datacard" element={<Datacard />} />
           <Route exact path="/admindashboard" element={<AdminDashboard />} />
           <Route exact path="/quickstats" element={<QuickstatParent />} />
+          <Route exact path="/report" element={<Reporting />} />
+          <Route exact path="/dailyprint" element={<DailyquequePrintPreview />} />
         </Routes>
       
     </Fragment>

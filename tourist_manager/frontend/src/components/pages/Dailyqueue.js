@@ -34,6 +34,10 @@ function Dailyqueue(props) {
   };
 
 
+  const handlePrint = () => {
+    navigate('/dailyprint');
+  }
+
   const handleRowClick = (vehicleId) => {
     props.getaVehicle(vehicleId);
     navigate('/vehicledetail');
@@ -144,6 +148,17 @@ function Dailyqueue(props) {
                 ))}
             </tbody>
           </Table>
+
+          <div className="text-right" style={{ marginTop: '1px' }}>
+          <button
+            onClick={handlePrint}
+            className="btn btn-primary"
+            style={{ width: '150px', marginTop: '10px', marginRight: '20px'}}
+          >
+            Print
+          </button>
+        </div>
+
         </div>
       </div>
     </Fragment>
