@@ -39,6 +39,7 @@ function AppContent() {
        location.pathname !== '/register' &&
        location.pathname !== '/report' &&
        location.pathname !== '/dailyprint' &&
+       location.pathname !== '/vehicledetail' &&
        location.pathname !== '/' && (
         <Header />
       )}

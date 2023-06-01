@@ -1,5 +1,5 @@
 h2 {
-  color: #0f0b04;
+  color: #000000;
 }
 
 /* Hero */
@@ -28,13 +28,13 @@ h2 {
 }
 
 #hero h1 > .label {
-  color: #050505;
+  color: #f5f4f4;
   font-family: 'Calisga';
   font-size: 20px;
 }
 
 #hero h1 > span:last-child {
-  color: #000000;
+  color: #f5efef;
   font-family: 'Calisga';
 }
 

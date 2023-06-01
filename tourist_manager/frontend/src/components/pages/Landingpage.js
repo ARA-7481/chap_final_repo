@@ -17,7 +17,7 @@ import WCYD3 from '../../assets/images/wcyd_3.png'
 import WCYD4 from '../../assets/images/wcyd_4.png'
 import WCYD5 from '../../assets/images/wcyd_5.png'
 import WCYD6 from '../../assets/images/wcyd_6.png'
-import BG from '../../assets/images/hero_img_1.png'
+import BG from '../../assets/images/BG_NEW.png'
 import Login from '../accounts/Login';
 
 
@@ -46,7 +46,7 @@ function Landingpage(props) {
             {/*<span className='label'>AS OF TODAY:</span>*/}
             <br/>
             {/*<span>{totalPassengers} </span>*/}
-            <span>CHOCOLATE HILLS MANAGEMENT SYSTEM</span>
+            <span>CHOCOLATE HILLS TICKETING MANAGEMENT SYSTEM</span>
           </h1>
           
           <p style={{lineHeight:'1', fontSize: '20px'}}>Behold Bohol, It's More Fun The Philippines!</p>
