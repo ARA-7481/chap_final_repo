@@ -134,16 +134,16 @@ function Statistics (props){
             ₱{totalEarnings}.00
           </h3>
         </div>
-        <h5 style={{ color: 'white', marginBottom: '15px' }}>
+        <h5 style={{ color: 'rgba(220, 220, 220, .85)', marginBottom: '15px' }}>
           Total domestic guests: {totalDomesticGuests}
         </h5>
-        <h5 style={{ color: 'white', marginBottom: '15px' }}>
+        <h5 style={{ color: 'rgba(220, 220, 220, .85)', marginBottom: '15px' }}>
           Total local guests: {totalLocalGuests}
         </h5>
-        <h5 style={{ color: 'white', marginBottom: '15px' }}>
+        <h5 style={{ color: 'rgba(220, 220, 220, .85)', marginBottom: '15px' }}>
           Total international guests: {totalInternationalGuests}
         </h5>
-        <h5 style={{ color: 'white', marginBottom: '15px' }}>
+        <h5 style={{ color: 'rgba(220, 220, 220, .85)', marginBottom: '15px' }}>
           Total number of guests: {totalPassengers}
         </h5>
         <div style={{ marginTop: '40px' }}>

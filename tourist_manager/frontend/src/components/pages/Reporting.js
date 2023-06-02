@@ -173,7 +173,7 @@ function Reporting(props) {
        <div style={{display:'flex', flexDirection:'column'}}>
 
           <CDBContainer style={{width:'800px', maxHeight:'350px', marginLeft:'100px'}}>
-            <h3 className="mt-5">Monthly Bar Chart</h3>
+            <h3 className="mt-5">Monthly Sales Summary</h3>
             <Bar data={monthlyChartData} options={{ responsive:true }} />
             <h3 className="mt-5">Total</h3>
             <Bar data={chartData} options={{ responsive:true }} style={{height: '150px'}} />
