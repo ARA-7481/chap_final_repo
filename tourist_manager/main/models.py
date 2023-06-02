@@ -68,6 +68,7 @@ class Vehicle(models.Model):
     international_bill = models.PositiveIntegerField(null=True)
     total_bill = models.FloatField(null=True)
     added_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, to_field='username')
+    status = models.CharField(max_length=10, default="Not Used", null=True)
 
 class Rates(models.Model):
     domestic_rate = models.PositiveIntegerField()

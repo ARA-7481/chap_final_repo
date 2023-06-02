@@ -26,6 +26,7 @@ import QuickstatParent from './pages/QuickstatParent';
 import Reporting from './pages/Reporting';
 import DailyquequePrintPreview from './pages/DailyquequePrintPreview';
 import Checker from './pages/Checker';
+import VehicleDetailsChecker from './pages/VehicleDetailsChecker';
 
 function AppContent() {
   const location = useLocation();
@@ -41,7 +42,9 @@ function AppContent() {
        location.pathname !== '/report' &&
        location.pathname !== '/dailyprint' &&
        location.pathname !== '/vehicledetail' &&
+       location.pathname !== '/vehicledetailchecker' &&
        location.pathname !== '/checker' &&
+       location.pathname !== '/overview' &&
        location.pathname !== '/' && (
         <Header />
       )}
@@ -51,6 +54,7 @@ function AppContent() {
           <Route exact path="/login" element={<Landingpage />} />
           <Route exact path="/logout" element={<Logout />} />
           <Route exact path="/vehicledetail" element={<VehicleDetail />} />
+          <Route exact path="/vehicledetailchecker" element={<VehicleDetailsChecker />} />
           <Route exact path="/unauthorized" element={<Unauthorized />} />
           <Route exact path="/overview" element={<Overview />} />
           <Route exact path="/dashboard" element={<Dashboard />} />

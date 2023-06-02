@@ -25,7 +25,7 @@ function DailyqueueNoprint(props) {
     if (matchingVehicle) {
       setHighlightedVehicleId(matchingVehicle.vehicle_id);
       props.getaVehicle(matchingVehicle.vehicle_id);
-      navigate('/vehicledetail');
+      navigate('/vehicledetailchecker');
     } else {
       props.searchFail();
       setHighlightedVehicleId(null);
@@ -36,7 +36,7 @@ function DailyqueueNoprint(props) {
 
   const handleRowClick = (vehicleId) => {
     props.getaVehicle(vehicleId);
-    navigate('/vehicledetail');
+    navigate('/vehicledetailchecker');
   };
 
   const handleDelete = (vehicleId) => {
@@ -92,6 +92,7 @@ function DailyqueueNoprint(props) {
                 <th className='align-middle'>Date</th>
                 <th className='align-middle'>Time</th>
                 <th className='align-middle'>Added By</th>
+                <th className='align-middle'>Status</th>
                 <th className='align-middle'>Check</th>
               </tr>
             </thead>
@@ -108,7 +109,7 @@ function DailyqueueNoprint(props) {
                     <td style={{width:'200px'}}>{vehicle.date}</td>
                     <td style={{width:'200px'}}>{vehicle.time}</td>
                     <td style={{width:'300px'}}>{vehicle.added_by}</td>
-
+                    <td style={{width:'300px'}}>{vehicle.status}</td>
                     <td style={{width:'200px'}}>
                     <button
                         onClick={() => handleRowClick(vehicle.vehicle_id)}

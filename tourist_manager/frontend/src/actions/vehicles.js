@@ -218,3 +218,20 @@ export const deleteUser = (id) => (dispatch, getState) => {
 
 
 };
+
+
+export const setStatus = (vehicleid) => (dispatch, getState) => {
+  const body = JSON.stringify({
+    status: 'Used'
+  });
+  axios.patch(`/api/simplevehicle/${vehicleid}/`, body, tokenConfig(getState))
+  };
+
+
+export const unsetStatus = (vehicleid) => (dispatch, getState) => {
+  const body = JSON.stringify({
+    status: 'Not Used'
+  });
+  axios.patch(`/api/simplevehicle/${vehicleid}/`, body, tokenConfig(getState))
+  };
+

@@ -91,6 +91,7 @@ function Overview(props) {
                 <th className='align-middle'>Date</th>
                 <th className='align-middle'>Time</th>
                 <th className='align-middle'>Added By</th>
+                <th className='align-middle'>Status</th>
                 <th className='align-middle'>Inspect</th>
               </tr>
             </thead>
@@ -113,6 +114,7 @@ function Overview(props) {
                     <td>{vehicle.date}</td>
                     <td>{vehicle.time}</td>
                     <td>{vehicle.added_by}</td>
+                    <td>{vehicle.status}</td>
                     
 
                     <td>
