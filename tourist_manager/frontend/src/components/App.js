@@ -25,6 +25,7 @@ import Quickstats from './pages/quickstats';
 import QuickstatParent from './pages/QuickstatParent';
 import Reporting from './pages/Reporting';
 import DailyquequePrintPreview from './pages/DailyquequePrintPreview';
+import Checker from './pages/Checker';
 
 function AppContent() {
   const location = useLocation();
@@ -40,6 +41,7 @@ function AppContent() {
        location.pathname !== '/report' &&
        location.pathname !== '/dailyprint' &&
        location.pathname !== '/vehicledetail' &&
+       location.pathname !== '/checker' &&
        location.pathname !== '/' && (
         <Header />
       )}
@@ -58,6 +60,7 @@ function AppContent() {
           <Route exact path="/admindashboard" element={<AdminDashboard />} />
           <Route exact path="/quickstats" element={<QuickstatParent />} />
           <Route exact path="/report" element={<Reporting />} />
+          <Route exact path="/checker" element={<Checker />} />
           <Route exact path="/dailyprint" element={<DailyquequePrintPreview />} />
         </Routes>
       

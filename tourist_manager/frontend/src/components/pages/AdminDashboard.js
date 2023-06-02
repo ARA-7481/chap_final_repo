@@ -31,7 +31,10 @@ function AdminDashboard(props){
             <Button variant="success" style={{width:'100%', height:'100px'}}>HOME</Button>
             </Nav.Link>
             <Nav.Link href="/#/dashboard" style={{marginTop:'20px', marginRight:'0px'}}>
-            <Button variant="secondary" style={{width:'100%', height:'100px'}}>STAFF DASHBOARD</Button>
+            <Button variant="secondary" style={{width:'100%', height:'100px'}}>VEHICLE INPUT</Button>
+            </Nav.Link>
+            <Nav.Link href="/#/checker" style={{marginTop:'20px', marginRight:'0px'}}>
+            <Button variant="secondary" style={{width:'100%', height:'100px'}}>CHECKER DASHBOARD</Button>
             </Nav.Link>
             <Nav.Link href="/#/logout" style={{marginTop:'440px', marginRight:'0px'}}>
             <Button variant="danger" style={{width:'100%', height:'50px'}}>LOGOUT</Button>

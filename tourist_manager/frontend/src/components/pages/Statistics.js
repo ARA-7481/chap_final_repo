@@ -75,22 +75,19 @@ function Statistics (props){
 
 
   const handleGetData = () => {
-    // Parse the text entered in the input box as a date
     const year = inputValue;
     const date = new Date(year);
-  
-    // Format the date to the yyyy format
+
     const formattedDate = moment(date).format('YYYY');
     props.getStatistics(formattedDate);
     props.getStatisticsReport(formattedDate);
   
-    // You can now use formattedDate as a string in the yyyy format
     console.log(formattedDate);
   };
 
   
   const handleAlertClose = () => async dispatch => {
-    // dispatch an action to the reducer to reset the value of reg_message
+
     dispatch({ type: RESET_REG_MESSAGE });
   };
   /*useEffect(() => {
@@ -230,7 +227,7 @@ function Statistics (props){
           <button
             onClick={handlePrintPreview}
             className="btn btn-primary"
-            style={{ width: '150px', marginTop: '10px', marginRight: '20px'}}
+            style={{ width: '150px', marginTop: '40px', marginRight: '70px'}}
           >
             Print
           </button>

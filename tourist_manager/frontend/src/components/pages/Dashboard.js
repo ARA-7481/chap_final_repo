@@ -23,24 +23,21 @@ function Dashboard(props) {
     <div style={{ display: 'flex', width: '100%', alignItems: 'flex-start', backgroundImage:`url(${BG})`, backgroundSize: 'cover' }}>
 
     <Card style={{ backgroundColor:'rgba(255, 255, 255, 0)', width: '3.3%', height: '100%', border: "none", display: 'flex', alignItems: 'flex-start', marginLeft: '0px', marginRight:'20px' }}>
-    <Navbar expand="1px" style={{ backgroundColor:'rgba(200, 211, 211, 0.5)', zIndex: 9999}}>
+    <Navbar expand="1px" style={{ backgroundColor:'rgba(200, 211, 211, 0.85)', zIndex: 9999}}>
       <Container>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto mt-auto" style={{height: '100%', width: '250px'}}>
+          <Nav className="me-auto mt-auto" style={{height: '100%', width:'250px'}}>
             <Nav.Link href="/" style={{marginTop:'50px', marginRight:'0px'}}>
             <Button variant="success" style={{width:'100%', height:'100px'}}>HOME</Button>
             </Nav.Link>
             <Nav.Link href="/#/admindashboard" style={{marginTop:'20px', marginRight:'0px'}}>
-            <Button variant="secondary" style={{width:'100%', height:'100px'}}>ADMIN</Button>
+            <Button variant="secondary" style={{width:'100%', height:'100px'}}>ADMIN DASHBOARD</Button>
             </Nav.Link>
-            <Nav.Link href="/#/quickstats" style={{marginTop:'20px', marginRight:'0px'}}>
-            <Button variant="info" style={{width:'100%', height:'100px'}}>QUICK STATS</Button>
+            <Nav.Link href="/#/checker" style={{marginTop:'20px', marginRight:'0px'}}>
+            <Button variant="secondary" style={{width:'100%', height:'100px'}}>CHECKER DASHBOARD</Button>
             </Nav.Link>
-            <Nav.Link href="/#/overview" style={{marginTop:'20px', marginRight:'0px'}}>
-            <Button variant="info" style={{width:'100%', height:'100px'}}>MASTER LIST</Button>
-            </Nav.Link>
-            <Nav.Link href="/#/logout" style={{marginTop:'200px', marginRight:'0px'}}>
+            <Nav.Link href="/#/logout" style={{marginTop:'440px', marginRight:'0px'}}>
             <Button variant="danger" style={{width:'100%', height:'50px'}}>LOGOUT</Button>
             </Nav.Link>
           </Nav>

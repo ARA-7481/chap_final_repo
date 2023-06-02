@@ -4,7 +4,7 @@ import React, { useState, Fragment } from 'react';
 function Unauthorized(){
     const navigate = useNavigate();
     const goBack = () => {
-        navigate('/dashboard');
+        navigate('/checker');
     }
 
     return (
