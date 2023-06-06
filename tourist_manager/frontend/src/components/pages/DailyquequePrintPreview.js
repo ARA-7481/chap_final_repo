@@ -50,7 +50,7 @@ function DailyqueuePrintPreview(props) {
             </div>
 
       <div className="d-flex justify-content-center">
-        <div className="table-container rounded" style={{maxHeight: '90vh', overflowY: 'auto', width: '100%', marginTop: '30px', marginRight: '20px', marginLeft: '20px', borderWidth: '3px'}}>
+        <div className="table-container rounded" style={{width: '100%', marginTop: '30px', marginRight: '20px', marginLeft: '20px', borderWidth: '3px'}}>
           <Table bordered style={{fontSize:'18px'}}>
             <thead>
               <tr>
