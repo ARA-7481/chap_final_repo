@@ -27,6 +27,8 @@ import Reporting from './pages/Reporting';
 import DailyquequePrintPreview from './pages/DailyquequePrintPreview';
 import Checker from './pages/Checker';
 import VehicleDetailsChecker from './pages/VehicleDetailsChecker';
+import NewFolder from './Newfolder/NewFolder';
+import FinalReport from './pages/FinalReport';
 
 function AppContent() {
   const location = useLocation();
@@ -40,17 +42,20 @@ function AppContent() {
        location.pathname !== '/admindashboard' && 
        location.pathname !== '/register' &&
        location.pathname !== '/report' &&
+       location.pathname !== '/finalreport' &&
        location.pathname !== '/dailyprint' &&
        location.pathname !== '/vehicledetail' &&
        location.pathname !== '/vehicledetailchecker' &&
        location.pathname !== '/checker' &&
        location.pathname !== '/overview' &&
+       location.pathname !== '/newfolder' &&
        location.pathname !== '/' && (
         <Header />
       )}
       
         <Routes>
           <Route exact path="/" element={<Landingpage />} />
+          <Route exact path="/newfolder" element={<NewFolder />} />
           <Route exact path="/login" element={<Landingpage />} />
           <Route exact path="/logout" element={<Logout />} />
           <Route exact path="/vehicledetail" element={<VehicleDetail />} />
@@ -64,6 +69,7 @@ function AppContent() {
           <Route exact path="/admindashboard" element={<AdminDashboard />} />
           <Route exact path="/quickstats" element={<QuickstatParent />} />
           <Route exact path="/report" element={<Reporting />} />
+          <Route exact path="/finalreport" element={<FinalReport />} />
           <Route exact path="/checker" element={<Checker />} />
           <Route exact path="/dailyprint" element={<DailyquequePrintPreview />} />
         </Routes>

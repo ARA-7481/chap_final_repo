@@ -127,7 +127,7 @@ function Reporting(props) {
          <div
            className="table-container rounded"
            style={{
-             height: '150%',
+             height: '100%',
              width: '100%',
              marginTop: '10px',
              marginLeft: '20px',
@@ -160,10 +160,10 @@ function Reporting(props) {
                ))}
                <tr style={{backgroundColor:'green'}}>
                  <td> </td>
-                 <td>{totalLocalBill}</td>
-                 <td>{totalDomesticBill}</td>
-                 <td>{totalInternationalBill}</td>
-                 <td>{totalEarning}</td>
+                 <td> ₱{totalLocalBill}</td>
+                 <td> ₱{totalDomesticBill}</td>
+                 <td> ₱{totalInternationalBill}</td>
+                 <td> ₱{totalEarning}</td>
                </tr>
              </tbody>
            </Table>

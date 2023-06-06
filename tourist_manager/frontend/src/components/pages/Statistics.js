@@ -70,7 +70,7 @@ function Statistics (props){
   }
 
   const handlePrintPreview = () => {
-    navigate('/report');
+    navigate('/finalreport');
   }
 
 
@@ -102,8 +102,8 @@ function Statistics (props){
   
 
   return (
-    <>
-      <Card style={{ width: '95%' , height: '95%', marginLeft:'27px', marginRight: '0px', backgroundColor:'rgba(51, 51, 51, 0.85)'}}>
+    
+      <Card style={{ width: '95%' , height: '100%', marginLeft:'27px', marginRight: '0px', marginBottom: '20px', backgroundColor:'rgba(51, 51, 51, 0.85)'}}>
         <Navbar bg="dark" variant="dark">
           <Nav className="me-auto" activeKey={activeKey} onSelect={setActiveKey}>
             <Nav.Link eventKey="form">Data Summary</Nav.Link>
@@ -117,36 +117,7 @@ function Statistics (props){
       {activeKey === 'form' && (
     <div style={{ display: 'flex' }}>
       <div>
-        <h2 style={{ color: 'white', marginBottom: '20px' }}>
-          Summary of Tourist Visits
-        </h2>
-        <div style={{ display: 'flex' }}>
-          <h3 style={{ color: 'white', marginBottom: '20px' }}>
-            Total earnings:
-          </h3>
-          <h3
-            style={{
-              color: 'yellow',
-              marginBottom: '20px',
-              marginLeft: '15px',
-            }}
-          >
-            ₱{totalEarnings}.00
-          </h3>
-        </div>
-        <h5 style={{ color: 'rgba(220, 220, 220, .85)', marginBottom: '15px' }}>
-          Total domestic guests: {totalDomesticGuests}
-        </h5>
-        <h5 style={{ color: 'rgba(220, 220, 220, .85)', marginBottom: '15px' }}>
-          Total local guests: {totalLocalGuests}
-        </h5>
-        <h5 style={{ color: 'rgba(220, 220, 220, .85)', marginBottom: '15px' }}>
-          Total international guests: {totalInternationalGuests}
-        </h5>
-        <h5 style={{ color: 'rgba(220, 220, 220, .85)', marginBottom: '15px' }}>
-          Total number of guests: {totalPassengers}
-        </h5>
-        <div style={{ marginTop: '40px' }}>
+        <div style={{ marginTop: '10px' }}>
           <button
             className="btn btn-primary"
             style={{ width: '350px' }}
@@ -219,6 +190,37 @@ function Statistics (props){
             Get All Data
           </button>
         </div>
+
+{/* <h2 style={{ color: 'white', marginBottom: '20px' }}>
+          Summary of Tourist Visits
+        </h2> */}
+        <div style={{ display: 'flex' , marginTop: '20px'}}>
+          <h3 style={{ color: 'white', marginBottom: '20px' }}>
+            Total earnings:
+          </h3>
+          <h3
+            style={{
+              color: 'yellow',
+              marginBottom: '20px',
+              marginLeft: '15px',
+            }}
+          >
+            ₱{totalEarnings}.00
+          </h3>
+        </div>
+        <h5 style={{ color: 'rgba(220, 220, 220, .85)', marginBottom: '15px' }}>
+          Total domestic guests: {totalDomesticGuests}
+        </h5>
+        <h5 style={{ color: 'rgba(220, 220, 220, .85)', marginBottom: '15px' }}>
+          Total local guests: {totalLocalGuests}
+        </h5>
+        <h5 style={{ color: 'rgba(220, 220, 220, .85)', marginBottom: '15px' }}>
+          Total international guests: {totalInternationalGuests}
+        </h5>
+        <h5 style={{ color: 'rgba(220, 220, 220, .85)', marginBottom: '15px' }}>
+          Total number of guests: {totalPassengers}
+        </h5>
+
       </div>
 
       <div style={{marginLeft: '100px'}}>
@@ -297,7 +299,7 @@ function Statistics (props){
         }
       </Card.Body>
     </Card>
-    </>
+    
   );
 }
 

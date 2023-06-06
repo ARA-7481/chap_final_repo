@@ -4,9 +4,11 @@ import PropTypes from 'prop-types';
 import { getVehiclestoday} from '../../actions/vehicles';
 import Table from 'react-bootstrap/Table';
 import withAuth from '../common/withAuth';
+import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Alert from 'react-bootstrap/Alert';
+import logonew from '../../assets/images/LOGO.jpg'
 
 //import '../../css/table.css'
 
@@ -33,10 +35,23 @@ function DailyqueuePrintPreview(props) {
 
   return (
     <Fragment>
+           <Card style={{width: '100%', border: 'none'}}>
+
+            <div style={{ display: 'flex', margin: 'auto'}}>
+            <div>
+            <img src={logonew} alt="logo" style={{width: '180px', height: '180px', marginRight: '30px'}}/>
+            </div>
+            <div style={{marginLeft: '10px'}}>
+            <Card.Title className="text-center" style={{ fontSize: '35px', marginTop: '15px' }}>Province of Bohol</Card.Title>
+            <h5 style={{marginTop: '5px'}} className="text-center">Municipality of Carmen</h5>
+            <h6 className="text-center" style={{marginTop: '5px'}}>Chocolate Hills Complex</h6>
+            <h2 className="text-center" style={{ color:'black', marginBottom:'20px'}}>Daily Sales Report</h2>
+            </div>
+            </div>
+
       <div className="d-flex justify-content-center">
-        <div className="table-container rounded" style={{maxHeight: '90vh', overflowY: 'auto', width: '100%', marginTop: '10px', marginRight: '0px', borderWidth: '3px'}}>
-        <h2 style={{ color: 'black', marginBottom: '20px' }}> Daily Sales Report </h2>
-          <Table bordered style = {{color: 'black', backgroundColor:'rgba(200, 200, 200, 0.90)'}}>
+        <div className="table-container rounded" style={{maxHeight: '90vh', overflowY: 'auto', width: '100%', marginTop: '30px', marginRight: '20px', marginLeft: '20px', borderWidth: '3px'}}>
+          <Table bordered style={{fontSize:'18px'}}>
             <thead>
               <tr>
                 <th className='align-middle'>Transaction Code</th>
@@ -58,19 +73,19 @@ function DailyqueuePrintPreview(props) {
                     <td>{vehicle.passenger_count_domestic}</td>
                     <td>{vehicle.passenger_count_international}</td>
                     <td>{vehicle.passenger_count}</td>
-                    <td>{vehicle.total_bill}</td>
+                    <td>₱{vehicle.total_bill}</td>
                     <td style={{width:'350px' ,maxWidth: '400px'}}>{vehicle.description}</td>
                   </tr>
                  
                 ))}
-                 <tr style={{backgroundColor: 'yellow'}}>
+                 <tr style={{color: 'green', fontSize: '25px'}}>
 
                     <td style={{width:'300px'}}>Total</td>
                     <td>{totalLocalGuests}</td>
                     <td>{totalDomesticGuests}</td>
                     <td>{totalInternationalGuests}</td>
                     <td>{totalPassengers}</td>
-                    <td>{totalEarnings}</td>
+                    <td>₱{totalEarnings}</td>
                     <td style={{width:'350px' ,maxWidth: '400px'}}>  </td>
 
                  </tr>
@@ -78,6 +93,7 @@ function DailyqueuePrintPreview(props) {
           </Table>
         </div>
       </div>
+      </Card>
     </Fragment>
   );
 }

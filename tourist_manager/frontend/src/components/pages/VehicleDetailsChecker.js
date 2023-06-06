@@ -59,7 +59,7 @@ function VehicleDetailChecker(props) {
       </Card.Body>
     </Card>
     <Card className="mx-auto" style={{ width: "500px", marginTop: '30px'}}>
-        <h2 style={{margin:'auto'}}>Status: {vehicle.status} </h2>
+        <h2 style={{margin:'auto', color:'red'}}>Status: {vehicle.status} </h2>
           <button
             onClick={handleCheck}
             className="btn btn-primary"

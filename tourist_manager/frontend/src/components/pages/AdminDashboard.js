@@ -16,12 +16,8 @@ import BG from '../../assets/images/hero_img_1xx.png'
 
 function AdminDashboard(props){
   return (
-    <>
-       {/*<section id='hero' style={{backgroundImage:`url(${BG})`, backgroundSize: 'cover', width:'100%', marginRight:'0px', marginLeft:'0px'}}>
-       */}
     <div style={{display: 'flex', width: '100%', height: '100%', backgroundImage:`url(${BG})`, backgroundSize: 'cover'}}>
-    
-    <Card style={{backgroundColor:'rgba(255, 255, 255, 0)', width: '2.3%', height: '100%', border: "none", display: 'flex', alignItems: 'flex-start', marginLeft: '0px', marginRight:'0px' }}>
+    <Card style={{backgroundColor:'rgba(255, 255, 255, 0)', width: '2.3%', height: '100%', border: "none", display: 'flex', alignItems: 'flex-start', marginLeft: '0px', marginRight:'20px' }}>
 <Navbar expand="1px" style={{ backgroundColor:'rgba(200, 211, 211, 0.85)', zIndex: 9999}}>
       <Container>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -45,13 +41,11 @@ function AdminDashboard(props){
     </Navbar>
     </Card>
 
-    <Card style={{backgroundColor:'rgba(255, 255, 255, 0)', width: '100%', height: '1200px', border: "none", marginLeft: '25px', marginRight:'0px' }}>
+    <Card style={{backgroundColor:'rgba(255, 255, 255, 0)', width: '100%', height: '1200px', border: "none", marginLeft: '25px'}}>
       <Statistics />
       </Card>
-  
       </div>
       
-    </>
   )
   }
 
